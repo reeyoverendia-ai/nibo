@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Ensure the background of the whole app doesn't default to white/dark */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: transparent; /* Allows the App.jsx gradient to be the primary color */
+  scroll-behavior: smooth;      /* Makes the Navbar links glide smoothly */
+  overflow-x: hidden;           /* Prevents horizontal scrolling/shaking */
+}
+
+/* 2. Global Typography (The Executive Touch) */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Fix for the "Veil" or Ghost overlays */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.fluid-scroll-wrapper {
+  background: linear-gradient(
+    to bottom, 
+    #eed9c4 0%,   
+    #8f9779 50%,  
+    #667b68 70%   
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  /* Corrected syntax for standard CSS */
+  min-height: 100vh; 
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .fluid-scroll-wrapper {
+    background-attachment: scroll;
+    background-size: 100% 100%;
+  }
+}
