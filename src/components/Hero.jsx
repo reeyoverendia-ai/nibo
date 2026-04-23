@@ -7,7 +7,7 @@ export default function Hero() {
           autoPlay loop muted playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/nibo-bg.mp4" type="video/mp4" />
+          <source src="/nibo-bg1.mp4" type="video/mp4" />
         </video>
         {/* Subtle dark overlay to make your Ivory text pop */}
         <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
