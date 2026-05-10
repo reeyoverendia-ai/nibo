@@ -112,19 +112,22 @@ export default function CompanyProfile() {
         {/* 4. KEY OBJECTIVES */}
         <KeyObjectives />
 
-        {/* 5. GROWTH & STRATEGY (The CTA Section) */}
-        <section className="pb-20 text-center">
-          <div className="max-w-4xl mx-auto p-12 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl bg-white/5 backdrop-blur-xl">
-            <h2 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-widest mb-8">Growth & Strategy</h2>
-            <p className="text-[#FFFFF0]/80 text-xl font-light italic mb-12">
-              "We are now seeking strategic investment partners to scale operations and expand production capacity."
-            </p>
-            {/* 🔍 BUTTON CALL */}
-            <ExecutiveGlassButton href="/#contact">
-              Discuss Partnership
-            </ExecutiveGlassButton>
-          </div>
-        </section>
+{/* 5. GROWTH & STRATEGY (Final Section) */}
+<section className="pb-20 text-center px-4">
+  <div className="max-w-4xl mx-auto p-12 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl bg-white/5 backdrop-blur-xl">
+    <h2 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-widest mb-8">Growth & Strategy</h2>
+    <p className="text-[#FFFFF0]/80 text-xl font-light italic mb-12">
+      "We are now seeking strategic investment partners to scale operations and expand production capacity."
+    </p>
+
+    {/* 🔍 THE CENTERING FIX: Added a flex container with justify-center */}
+    <div className="flex justify-center w-full">
+      <ExecutiveGlassButton href="/#contact">
+        Discuss Partnership
+      </ExecutiveGlassButton>
+    </div>
+  </div>
+</section>
 
       </div>
     </div>
