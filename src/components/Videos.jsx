@@ -2,6 +2,7 @@ export default function Videos() {
   return (
 <section id="process" className="py-24 px-6 bg-transparent">
   <div className="max-w-7xl mx-auto text-center">
+    <section id="our-solutions" className="w-full"></section>
     
     {/* HEADING: Ebony Clay for a strong industrial punch */}
     <h2 

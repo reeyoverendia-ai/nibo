@@ -1,4 +1,7 @@
+import React from 'react';
+import { Link } from 'react-router-dom'; // 🔍 ADD THIS LINE
 export default function Hero() {
+  
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center">
       {/* BACKGROUND VIDEO/IMAGE */}
@@ -7,7 +10,7 @@ export default function Hero() {
           autoPlay loop muted playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/nibo-bg.mp4" type="video/mp4" />
+          <source src="/nibo-bg2.mp4" type="video/mp4" />
         </video>
         {/* Subtle dark overlay to make your Ivory text pop */}
         <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
@@ -33,42 +36,59 @@ export default function Hero() {
         Tablet: text-7xl 
         Desktop: text-9xl 
     */}
-    <h1 className="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.9] md:leading-[0.85] tracking-tighter mb-8 uppercase">
-      <span style={{ color: '#FFFFF0' }}>Superior Soil</span> <br />
-      <span style={{ color: '#87AE73' }}>Intelligence.</span>
-    </h1>
+<h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[8xl] font-black leading-[0.95] md:leading-[0.9] tracking-tighter mb-10 uppercase break-words">
+  {/* TOP LINE: High-Precision */}
+  <span style={{ color: '#FFFFF0' }}>High-Precision</span> <br />
+  
+  {/* MIDDLE LINE: Biological Systems */}
+  <span style={{ color: '#87AE73' }}>Biological Systems</span> <br />
+  
+  {/* BOTTOM LINE: Smaller, secondary color to fit the length */}
+  <span className="text-2xl md:text-4xl lg:text-5xl block mt-4" style={{ color: '#FFFFF0', opacity: 0.8 }}>
+    for Climate-Resilient Farming
+  </span>
+</h1>
 
     {/* SUBTEXT: Reduced size on mobile for better flow */}
     <p className="text-base md:text-xl max-w-2xl font-light leading-relaxed mb-10" style={{ color: '#FFFFF0', opacity: 0.9 }}>
       NIBO engineers high-performance nutrient delivery systems designed for the next generation of industrial agriculture.
     </p>
 
-    <div className="flex flex-col sm:flex-row gap-5">
-  {/* OUR SOLUTIONS - Muted Olive Glass */}
-  <button 
-    className="px-12 py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all hover:scale-105 active:scale-95 border border-white/10 shadow-xl"
+<div className="flex flex-wrap gap-6 mt-12">
+  {/* OUR SOLUTIONS */}
+  <Link 
+    to="/#our-solutions" 
+    className="relative px-12 py-5 rounded-full font-black uppercase tracking-[0.4em] text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-[#D4CBB8]/30"
     style={{ 
-      backgroundColor: 'rgba(132, 140, 103, 0.4)', // #848C67 at 40%
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)',
-      color: '#FFFFF0'
+      backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+      color: '#FFFFF0', 
+      backdropFilter: 'blur(12px)' 
     }}
   >
-    Our Solutions
-  </button>
-  
-  {/* THE NIBO PROCESS - Clear Semi-Frosted Glass */}
-  <button 
-    className="px-12 py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-300 hover:scale-105 hover:bg-white/10 backdrop-blur-md border border-white/20 active:scale-95 shadow-xl"
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
+    <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Our Solutions</span>
+    <style dangerouslySetInnerHTML={{ __html: `
+      .group:hover {
+        box-shadow: 0 0 40px rgba(212, 203, 184, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2);
+        border-color: rgba(253, 251, 212, 0.6);
+        transform: translateY(-3px);
+      }
+    `}} />
+  </Link>
+
+  {/* FIELD TESTIMONIALS */}
+  <Link 
+    to="/#field-testimonials" 
+    className="relative px-12 py-5 rounded-full font-black uppercase tracking-[0.4em] text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-white/20"
     style={{ 
-      backgroundColor: 'rgba(255, 255, 240, 0.15)', // Light Ivory Glass
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)',
-      color: '#FFFFF0' 
+      backgroundColor: 'rgba(255, 255, 255, 0.03)', 
+      color: '#FFFFF0', 
+      backdropFilter: 'blur(16px)' 
     }}
   >
-    The NIBO Process
-  </button>
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
+    <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Field Testimonials</span>
+  </Link>
 </div>
         </div>
       </div>
