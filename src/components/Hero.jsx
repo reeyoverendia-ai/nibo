@@ -3,29 +3,31 @@ import { Link } from 'react-router-dom'; // 🔍 ADD THIS LINE
 export default function Hero() {
   
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center">
-      {/* BACKGROUND VIDEO/IMAGE */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay loop muted playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/nibo-bg2.mp4" type="video/mp4" />
-        </video>
-        {/* Subtle dark overlay to make your Ivory text pop */}
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
-      </div>
+<section className="relative h-screen w-full overflow-hidden flex items-center">
+  {/* 1. THE VIDEO LAYER (Bottom) */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    poster="/hero-fallback-image.jpg"
+    className="absolute top-0 left-0 w-full h-full object-cover md:object-center object-[70%_center] z-0"
+  >
+    <source src="/nibo-bg2.mp4" type="video/mp4" />
+  </video>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 md:pt-20">
-  <div className="max-w-4xl">
-    
-    {/* PILL: Added 'mt-4' to ensure it doesn't touch the Navbar */}
-    <span 
-      className="inline-block py-2 px-6 rounded-full border mb-6 mt-4 text-[9px] md:text-xs font-bold uppercase tracking-[0.3em]"
-      style={{ 
-        backgroundColor: 'rgba(135, 174, 115, 0.2)',
-        borderColor: 'rgba(255, 255, 240, 0.3)',
-        color: '#FFFFF0'
+  {/* 2. THE OVERLAY LAYER (Middle) - Changed z-index to z-10 */}
+  <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-10"></div>
+
+  {/* 3. THE CONTENT LAYER (Top) - Added relative and z-20 */}
+  <div className="relative z-20 max-w-7xl mx-auto px-8 md:px-12 w-full">
+    <div className="max-w-4xl">
+      <span 
+        className="inline-block py-2 px-6 rounded-full border mb-6 mt-4 text-[9px] md:text-xs font-bold uppercase tracking-[0.3em]"
+        style={{ 
+          backgroundColor: 'rgba(135, 174, 115, 0.2)',
+          borderColor: 'rgba(255, 255, 240, 0.3)',
+          color: '#FFFFF0'
       }}
     >
       Cultivating the Future of Agriculture
