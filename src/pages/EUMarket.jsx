@@ -63,61 +63,47 @@ export default function EUMarket() {
           </div>
         </div>
 
-{/* 1. MARKET COMPARISON TABLE */}
-<div 
-  className="p-10 md:p-16 rounded-[4rem] border border-white/20 shadow-2xl mb-32"
-  style={{ 
-    backgroundColor: 'rgba(255, 255, 240, 0.05)', 
-    backdropFilter: 'blur(30px)',
-    WebkitBackdropFilter: 'blur(30px)'
-  }}
->
-  <div className="flex justify-between items-start mb-12">
-    <h2 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-widest">
-      Import vs. <span className="text-[#635D59]">NIBO Premium</span>
-    </h2>
-    
-    <p className="text-[#FFFFF0] text-[11px] uppercase tracking-[0.3em] font-black opacity-100 bg-white/10 px-4 py-2 rounded-lg border border-white/10">
-      Data Ref: 2026 Projections
-    </p>
-  </div>
-  
-  <div className="overflow-x-auto">
-    <table className="w-full text-left border-collapse">
-      <thead>
-        {/* Headers changed to #635D59 for a unified professional look */}
-        <tr className="text-[#635D59] text-sm font-black uppercase tracking-[0.4em] border-b-2 border-[#635D59]/20">
-          <th className="py-8">Metric Cluster</th>
-          <th className="py-8">Conventional Import</th>
-          <th className="py-8 text-[#FFFFF0]">NIBO Bio-System</th>
-        </tr>
-      </thead>
-      
-      <tbody className="text-[#FFFFF0]">
-        {comparisonData.map((row, i) => (
-          <tr key={i} className="border-b border-white/10 group hover:bg-white/[0.05] transition-all">
-            {/* Metric Cluster: High-contrast Ivory */}
-            <td className="py-8 font-black text-xl text-[#FFFFF0] tracking-tight uppercase">
-              {row.metric}
-            </td>
+        {/* 1. MARKET COMPARISON TABLE */}
+        <div 
+          className="p-10 md:p-16 rounded-[4rem] border border-white/20 shadow-2xl mb-32"
+          style={{ 
+            backgroundColor: 'rgba(255, 255, 240, 0.05)', 
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)'
+          }}
+        >
+          <div className="flex justify-between items-start mb-12">
+            <h2 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-widest">
+              Import vs. <span className="text-[#635D59]">NIBO Premium</span>
+            </h2>
+            <p className="text-[#FFFFF0] text-[11px] uppercase tracking-[0.3em] font-black bg-white/10 px-4 py-2 rounded-lg border border-white/10">
+              Data Ref: 2026 Projections
+            </p>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="text-[#635D59] text-sm font-black uppercase tracking-[0.4em] border-b-2 border-[#635D59]/20">
+                  <th className="py-8">Metric Cluster</th>
+                  <th className="py-8">Conventional Import</th>
+                  <th className="py-8 text-[#FFFFF0]">NIBO Bio-System</th>
+                </tr>
+              </thead>
+              <tbody className="text-[#FFFFF0]">
+                {comparisonData.map((row, i) => (
+                  <tr key={i} className="border-b border-white/10 hover:bg-white/[0.05] transition-all">
+                    <td className="py-8 font-black text-xl text-[#FFFFF0] tracking-tight uppercase">{row.metric}</td>
+                    <td className="py-8 text-lg font-bold text-[#FFFFF0]">{row.import}</td>
+                    <td className="py-8 text-2xl font-black text-[#635D59]">{row.nibo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-            {/* Conventional Import: High-contrast Ivory */}
-            <td className="py-8 text-lg font-bold text-[#FFFFF0] opacity-100 tracking-wide">
-              {row.import}
-            </td>
-
-            {/* NIBO Column: Your preferred Earth-tone #635D59 */}
-            <td className="py-8 text-2xl font-black text-[#635D59]">
-              {row.nibo}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-
-        {/* 2. EU GREEN DEAL ALIGNMENT (THE EXECUTIVE GRID) */}
+        {/* 2. EU GREEN DEAL ALIGNMENT */}
         <div className="space-y-16">
           <div className="text-center">
             <p className="text-[#FDFBD4] font-bold uppercase tracking-[0.5em] text-xs mb-4">Strategic Framework</p>
@@ -126,48 +112,62 @@ export default function EUMarket() {
             </h2>
           </div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-  {alignmentCards.map((card, i) => (
-    <div 
-      key={i}
-      className="group p-12 rounded-[3.5rem] border border-white/20 flex flex-col justify-between min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl"
-      style={{ 
-        backgroundColor: 'rgba(255, 255, 240, 0.04)', // Slightly more visible glass base
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)'
-      }}
-    >
-      <div className="flex justify-between items-start mb-8">
-        {/* 🔍 FIX 1: Changed to Solid Ivory and increased font weight */}
-        <span className="text-[#FFFFF0] font-black text-3xl tracking-tighter opacity-90 group-hover:text-[#FAEEC8] transition-colors">
-          {card.id}
-        </span>
-        
-        {/* 🔍 FIX 2: Added a glass background to the tag for better contrast */}
-        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-5 py-2 rounded-full">
-          {card.tag}
-        </span>
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {alignmentCards.map((card, i) => (
+              <div 
+                key={i}
+                className="card-glow group p-12 rounded-[3.5rem] border border-white/20 flex flex-col justify-between min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl relative overflow-hidden"
+                style={{ 
+                  backgroundColor: 'rgba(255, 255, 240, 0.04)', 
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)'
+                }}
+              >
+                <div className="flex justify-between items-start mb-8">
+                  <span className="num-animate text-[#FFFFF0] font-black text-3xl tracking-tighter opacity-50 transition-all duration-500">
+                    {card.id}
+                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-5 py-2 rounded-full">
+                    {card.tag}
+                  </span>
+                </div>
 
-      <div>
-        {/* 🔍 FIX 3: Increased title size and weight */}
-        <h3 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-tight mb-6 leading-tight">
-          {card.title}
-        </h3>
-        {/* 🔍 FIX 4: Brightened text and increased font size */}
-        <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-xl">
-          {card.text}
-        </p>
-      </div>
+                <div>
+                  <h3 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-tight mb-6 leading-tight">
+                    {card.title}
+                  </h3>
+                  <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-xl">
+                    {card.text}
+                  </p>
+                </div>
 
-      {/* High-visibility decorative line */}
-      <div className="w-16 h-[3px] bg-[#FAEEC8] mt-10 group-hover:w-full transition-all duration-700 opacity-100 shadow-[0_0_15px_rgba(135,174,115,0.3)]"></div>
-    </div>
-  ))}
-</div>
+                <div className="animate-draw w-16 h-[3px] bg-[#4A5D23] mt-10 transition-all duration-700 opacity-100"></div>
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
+
+      {/* 🛠️ GLOBAL POSH STYLES - Safe at the bottom */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .card-glow:hover .animate-draw {
+          width: 100% !important;
+          background-color: #FFFFFF !important;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .card-glow:hover .num-animate {
+          color: #FAEEC8 !important;
+          opacity: 1 !important;
+          text-shadow: 0 0 15px rgba(250, 238, 200, 0.5);
+        }
+
+        .card-glow:hover {
+          box-shadow: 0 0 50px rgba(255, 255, 240, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.1) !important;
+          border-color: rgba(255, 255, 255, 0.4) !important;
+          transform: translateY(-5px);
+        }
+      `}} />
     </div>
   );
 }
