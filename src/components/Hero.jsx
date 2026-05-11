@@ -1,97 +1,95 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 🔍 ADD THIS LINE
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
-  
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center">
-      {/* BACKGROUND VIDEO/IMAGE */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay loop muted playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/nibo-bg2.mp4" type="video/mp4" />
-        </video>
-        {/* Subtle dark overlay to make your Ivory text pop */}
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
-      </div>
+      {/* 1. THE VIDEO LAYER */}
+      <video
+        autoPlay loop muted playsInline
+        poster="/hero-fallback-image.jpg"
+        className="absolute top-0 left-0 w-full h-full object-cover md:object-center object-[70%_center] z-0"
+      >
+        <source src="/nibo-bg2.mp4" type="video/mp4" />
+      </video>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 md:pt-20">
-  <div className="max-w-4xl">
-    
-    {/* PILL: Added 'mt-4' to ensure it doesn't touch the Navbar */}
-    <span 
-      className="inline-block py-2 px-6 rounded-full border mb-6 mt-4 text-[9px] md:text-xs font-bold uppercase tracking-[0.3em]"
+      {/* 2. THE OVERLAY LAYER */}
+      <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-10"></div>
+
+      {/* 3. THE CONTENT LAYER */}
+      <div className="relative z-20 max-w-7xl mx-auto px-8 md:px-12 w-full">
+{/* 🔍 THE PRECISION BALANCE FIX:
+    1. pt-[320px]: A massive top push to ensure the green pill is deep in the "clear zone."
+    2. gap-y-1: Tightened the vertical space between the Pill, Header, and Paragraph.
+    3. mb-4: Reduced bottom margins to "pull" the buttons up toward the text.
+    4. scale-[0.85]: Reset to 0.85 to give us a bit more room than the previous 0.82.
+*/}
+<div className="max-w-4xl flex flex-col pt-[320px] md:pt-28 pb-20 md:pb-0 h-full transform scale-[0.85] sm:scale-100 origin-top-left">
+  
+  {/* PILL SECTION */}
+  <span 
+    className="inline-block py-2 px-6 rounded-full border mb-2 text-[9px] md:text-xs font-bold uppercase tracking-[0.3em] self-start"
+    style={{ 
+      backgroundColor: 'rgba(135, 174, 115, 0.2)',
+      borderColor: 'rgba(255, 255, 240, 0.3)',
+      color: '#FFFFF0'
+    }}
+  >
+    Cultivating the Future of Agriculture
+  </span>
+  
+  {/* HEADLINE SECTION - Tightened mb from 4 to 2 */}
+  <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[8xl] font-black leading-[0.95] md:leading-[0.9] tracking-tighter mb-2 md:mb-10 uppercase break-words">
+    <span style={{ color: '#FFFFF0' }}>High-Precision</span> <br />
+    <span style={{ color: '#87AE73' }}>Biological Systems</span> <br />
+    <span className="text-2xl md:text-4xl lg:text-5xl block mt-2 tracking-normal font-bold" style={{ color: '#FFFFF0', opacity: 0.8 }}>
+      for Climate-Resilient Farming
+    </span>
+  </h1>
+
+  {/* PARAGRAPH SECTION - Tightened mb from 6 to 4 */}
+  <p className="text-base md:text-xl max-w-2xl font-light leading-relaxed mb-4 md:mb-10" style={{ color: '#FFFFF0', opacity: 0.9 }}>
+    NIBO engineers high-performance nutrient delivery systems designed for the next generation of industrial agriculture.
+  </p>
+
+  {/* BUTTONS SECTION - Reduced mt to keep them close to the text */}
+  <div className="flex flex-wrap gap-3 md:gap-6 mt-4">
+    <Link 
+      to="/#our-solutions" 
+      className="relative px-10 md:px-12 py-4 md:py-5 rounded-full font-black uppercase tracking-[0.4em] text-[10px] md:text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-[#D4CBB8]/30 shrink-0"
       style={{ 
-        backgroundColor: 'rgba(135, 174, 115, 0.2)',
-        borderColor: 'rgba(255, 255, 240, 0.3)',
-        color: '#FFFFF0'
+        backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+        color: '#FFFFF0', 
+        backdropFilter: 'blur(12px)' 
       }}
     >
-      Cultivating the Future of Agriculture
-    </span>
-    
-    {/* RESPONSIVE HEADING: 
-        Mobile: text-5xl (tight)
-        Tablet: text-7xl 
-        Desktop: text-9xl 
-    */}
-<h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[8xl] font-black leading-[0.95] md:leading-[0.9] tracking-tighter mb-10 uppercase break-words">
-  {/* TOP LINE: High-Precision */}
-  <span style={{ color: '#FFFFF0' }}>High-Precision</span> <br />
-  
-  {/* MIDDLE LINE: Biological Systems */}
-  <span style={{ color: '#87AE73' }}>Biological Systems</span> <br />
-  
-  {/* BOTTOM LINE: Smaller, secondary color to fit the length */}
-  <span className="text-2xl md:text-4xl lg:text-5xl block mt-4" style={{ color: '#FFFFF0', opacity: 0.8 }}>
-    for Climate-Resilient Farming
-  </span>
-</h1>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
+      <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Our Solutions</span>
+    </Link>
 
-    {/* SUBTEXT: Reduced size on mobile for better flow */}
-    <p className="text-base md:text-xl max-w-2xl font-light leading-relaxed mb-10" style={{ color: '#FFFFF0', opacity: 0.9 }}>
-      NIBO engineers high-performance nutrient delivery systems designed for the next generation of industrial agriculture.
-    </p>
-
-<div className="flex flex-wrap gap-6 mt-12">
-  {/* OUR SOLUTIONS */}
-  <Link 
-    to="/#our-solutions" 
-    className="relative px-12 py-5 rounded-full font-black uppercase tracking-[0.4em] text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-[#D4CBB8]/30"
-    style={{ 
-      backgroundColor: 'rgba(255, 255, 255, 0.05)', 
-      color: '#FFFFF0', 
-      backdropFilter: 'blur(12px)' 
-    }}
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
-    <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Our Solutions</span>
-    <style dangerouslySetInnerHTML={{ __html: `
-      .group:hover {
-        box-shadow: 0 0 40px rgba(212, 203, 184, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2);
-        border-color: rgba(253, 251, 212, 0.6);
-        transform: translateY(-3px);
-      }
-    `}} />
-  </Link>
-
-  {/* FIELD TESTIMONIALS */}
-  <Link 
-    to="/#field-testimonials" 
-    className="relative px-12 py-5 rounded-full font-black uppercase tracking-[0.4em] text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-white/20"
-    style={{ 
-      backgroundColor: 'rgba(255, 255, 255, 0.03)', 
-      color: '#FFFFF0', 
-      backdropFilter: 'blur(16px)' 
-    }}
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
-    <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Field Testimonials</span>
-  </Link>
+    <Link 
+      to="/#field-testimonials" 
+      className="relative px-10 md:px-12 py-4 md:py-5 rounded-full font-black uppercase tracking-[0.4em] text-[10px] md:text-[11px] transition-all duration-500 shadow-2xl overflow-hidden group border border-white/20 shrink-0"
+      style={{ 
+        backgroundColor: 'rgba(255, 255, 255, 0.03)', 
+        color: '#FFFFF0', 
+        backdropFilter: 'blur(16px)' 
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
+      <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Field Testimonials</span>
+    </Link>
+  </div>
 </div>
-        </div>
       </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .group:hover {
+          box-shadow: 0 0 40px rgba(212, 203, 184, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2);
+          border-color: rgba(253, 251, 212, 0.6);
+          transform: translateY(-3px);
+        }
+      `}} />
     </section>
   );
 }

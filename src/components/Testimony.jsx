@@ -59,7 +59,7 @@ export default function Testimony() {
 
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg mb-8 border border-white/10">
-                  <span className="text-[#4A5D23] text-xs font-bold">✓</span>
+                  <span className="text-[#FDFBD4] text-xs font-bold">✓</span>
                   <span className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-widest">{item.tag}</span>
                 </div>
 
@@ -82,7 +82,9 @@ export default function Testimony() {
                 </div>
                 <div>
                   <h4 className="text-[#FFFFF0] font-bold text-sm uppercase tracking-wide">{item.farm}</h4>
-                  <p className="text-[#FFFFF0]/40 text-[10px] leading-tight mt-1">{item.location}</p>
+                  <p 
+  className="text-[#FFFFF0]/80 text-xs font-medium leading-tight mt-1 antialiased"
+  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>{item.location}</p>
                 </div>
               </div>
             </div>

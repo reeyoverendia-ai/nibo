@@ -3,10 +3,10 @@ import { useLocation, BrowserRouter as Router, Routes, Route } from 'react-route
 // ... other imports
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import FeasibilityStudy from './pages/FeasibilityStudy';
+import Products from './pages/Products';
 import CompanyProfile from './pages/CompanyProfile';
 // 🔍 ADD THESE TWO IMPORTS:
-import TechnicalBrief from './pages/TechnicalBrief';
+import SoilScience from './pages/SoilScience';
 import ResultsPage from './pages/ResultsPage';
 import EUMarket from './pages/EUMarket'; // 1. Import it
 import FAQ from './pages/FAQ';
@@ -52,8 +52,8 @@ function App() {
         <main className="flex-grow bg-transparent">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/feasibility-study" element={<FeasibilityStudy />} />
-            <Route path="/technical-brief" element={<TechnicalBrief />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/soil-science" element={<SoilScience />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/company-profile" element={<CompanyProfile />} />
             <Route path="/faq" element={<FAQ />} /> 
