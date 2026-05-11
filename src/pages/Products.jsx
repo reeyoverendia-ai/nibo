@@ -62,10 +62,10 @@ export default function Products() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#667b68]">
       
-      {/* 🔍 WRAPPER START: This container holds the Header + 3 Products */}
+      {/* 🔍 WRAPPER START */}
       <div className="relative w-full">
         
-        {/* VIDEO BACKGROUND (Pinned to this specific container) */}
+        {/* VIDEO BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video 
             autoPlay 
@@ -90,7 +90,7 @@ export default function Products() {
               <p className="text-[#FFFFF0] text-2xl font-light italic opacity-80">The Science behind the Success</p>
             </div>
 
-            {/* PRODUCT CARDS LOOP (Video ends after Growmore) */}
+            {/* PRODUCT CARDS LOOP */}
             <div className="space-y-48">
               {products.map((product, index) => (
                 <div 
@@ -120,36 +120,18 @@ export default function Products() {
                         "{product.description}"
                       </p>
 
-<<<<<<< HEAD:src/pages/Products.jsx
-<ul className="grid grid-cols-1 gap-5"> {/* Subtle gap increase for impact */}
-  {product.bullets.map((bullet, i) => (
-    <li key={i} className="flex items-start gap-4 text-[#FFFFF0]/80 text-lg font-light leading-relaxed">
-      
-      {/* 🔍 THE BIG BULLET FIX: 
-          1. Removed translate-y and mt-2
-          2. added 'relative' and 'top-[4px]'
-          3. added 'text-lg font-black' to retain big, powerful size
-      */}
-      <span className="text-[#FDFBD4] shrink-0 text-lg font-black relative top-[4px]">
-        ●
-      </span>
-      
-      <span className="flex-1">
-        {bullet}
-      </span>
-    </li>
-  ))}
-</ul>
-=======
-                      <ul className="grid grid-cols-1 gap-4">
+                      <ul className="grid grid-cols-1 gap-5">
                         {product.bullets.map((bullet, i) => (
                           <li key={i} className="flex items-start gap-4 text-[#FFFFF0]/80 text-lg font-light leading-relaxed">
-                            <span className="text-[#FDFBD4] mt-2 shrink-0">●</span>
-                            <span>{bullet}</span>
+                            <span className="text-[#FDFBD4] shrink-0 text-lg font-black relative top-[4px]">
+                              ●
+                            </span>
+                            <span className="flex-1">
+                              {bullet}
+                            </span>
                           </li>
                         ))}
                       </ul>
->>>>>>> fa6eb63bf372a6c0dfe027ec20384749f7d21118:src/pages/FeasibilityStudy.jsx
                     </div>
                   </div>
                 </div>
@@ -158,9 +140,8 @@ export default function Products() {
           </div>
         </section>
       </div> 
-      {/* 🔍 WRAPPER END: The video coverage stops here */}
 
-      {/* SECTION 2: UNIVERSAL SYSTEM (Starts with solid background) */}
+      {/* SECTION 2: UNIVERSAL SYSTEM */}
       <section 
         className="relative z-20 py-32 px-8 md:px-16"
         style={{ background: 'linear-gradient(to bottom, #eed9c4 0%, #8f9779 50%, #667b68 70%)' }}
