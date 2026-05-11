@@ -63,45 +63,49 @@ export default function EUMarket() {
           </div>
         </div>
 
-        {/* 1. MARKET COMPARISON TABLE */}
-        <div 
-          className="p-10 md:p-16 rounded-[4rem] border border-white/20 shadow-2xl mb-32"
-          style={{ 
-            backgroundColor: 'rgba(255, 255, 240, 0.05)', 
-            backdropFilter: 'blur(30px)',
-            WebkitBackdropFilter: 'blur(30px)'
-          }}
-        >
-          <div className="flex justify-between items-start mb-12">
-            <h2 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-widest">
-              Import vs. <span className="text-[#635D59]">NIBO Premium</span>
-            </h2>
-            <p className="text-[#FFFFF0] text-[11px] uppercase tracking-[0.3em] font-black bg-white/10 px-4 py-2 rounded-lg border border-white/10">
-              Data Ref: 2026 Projections
-            </p>
-          </div>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="text-[#635D59] text-sm font-black uppercase tracking-[0.4em] border-b-2 border-[#635D59]/20">
-                  <th className="py-8">Metric Cluster</th>
-                  <th className="py-8">Conventional Import</th>
-                  <th className="py-8 text-[#FFFFF0]">NIBO Bio-System</th>
-                </tr>
-              </thead>
-              <tbody className="text-[#FFFFF0]">
-                {comparisonData.map((row, i) => (
-                  <tr key={i} className="border-b border-white/10 hover:bg-white/[0.05] transition-all">
-                    <td className="py-8 font-black text-xl text-[#FFFFF0] tracking-tight uppercase">{row.metric}</td>
-                    <td className="py-8 text-lg font-bold text-[#FFFFF0]">{row.import}</td>
-                    <td className="py-8 text-2xl font-black text-[#635D59]">{row.nibo}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+{/* 1. MARKET COMPARISON TABLE (Glass Card Container) */}
+<div 
+  className="rounded-[4rem] border border-white/30 overflow-hidden mb-32 shadow-2xl"
+  style={{ 
+    backgroundColor: 'rgba(255, 255, 240, 0.05)', 
+    backdropFilter: 'blur(50px)',
+    WebkitBackdropFilter: 'blur(50px)'
+  }}
+>
+  <div className="p-12 md:p-20">
+    {/* Table Header in Cream */}
+    <div className="grid grid-cols-3 pb-10 border-b-2 border-[#635D59]/20 text-xs font-black uppercase tracking-[0.4em] text-[#FDFBD4]">
+      <div>Metric Cluster</div>
+      <div className="text-right">Conventional Import</div>
+      <div className="text-right">NIBO Bio-System</div>
+    </div>
+
+    {comparisonData.map((row, i) => (
+      <div 
+        key={i} 
+        className="grid grid-cols-3 py-10 border-b border-white/10 items-center group hover:bg-white/5 transition-all relative"
+      >
+        {/* 1. Metric Label */}
+        <div className="text-[#FFFFF0] font-black uppercase text-xl md:text-2xl tracking-tight transition-all duration-300 group-hover:translate-x-2">
+          {row.metric}
         </div>
+
+        {/* 2. Conventional Value (Column 2) */}
+        <div className="text-right text-[#FFFFF0]/60 font-mono text-xl md:text-2xl pr-8">
+          {row.import}
+        </div>
+
+        {/* 3. NIBO Value (Column 3) - Popping out */}
+        <div className="text-right font-mono text-2xl md:text-4xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform group-hover:scale-105">
+          {row.nibo}
+        </div>
+
+        {/* 🔍 THE GLOW LINE: Appears only on hover like the Results page */}
+        <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#FAEEC8] group-hover:w-full transition-all duration-700 shadow-[0_0_15px_rgba(250,238,200,0.6)]"></div>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* 2. EU GREEN DEAL ALIGNMENT */}
         <div className="space-y-16">
