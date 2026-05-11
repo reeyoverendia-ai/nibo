@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
+<<<<<<< HEAD
     <section className="relative h-screen w-full overflow-hidden flex items-center">
       {/* 1. THE VIDEO LAYER */}
       <video
@@ -61,6 +62,33 @@ export default function Hero() {
         backgroundColor: 'rgba(255, 255, 255, 0.05)', 
         color: '#FFFFF0', 
         backdropFilter: 'blur(12px)' 
+=======
+<section className="relative h-screen w-full overflow-hidden flex items-center">
+  {/* 1. THE VIDEO LAYER (Bottom) */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    poster="/hero-fallback-image.jpg"
+    className="absolute top-0 left-0 w-full h-full object-cover md:object-center object-[70%_center] z-0"
+  >
+    <source src="/nibo-bg2.mp4" type="video/mp4" />
+  </video>
+
+  {/* 2. THE OVERLAY LAYER (Middle) - Changed z-index to z-10 */}
+  <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-10"></div>
+
+  {/* 3. THE CONTENT LAYER (Top) - Added relative and z-20 */}
+  <div className="relative z-20 max-w-7xl mx-auto px-8 md:px-12 w-full">
+    <div className="max-w-4xl">
+      <span 
+        className="inline-block py-2 px-6 rounded-full border mb-6 mt-4 text-[9px] md:text-xs font-bold uppercase tracking-[0.3em]"
+        style={{ 
+          backgroundColor: 'rgba(135, 174, 115, 0.2)',
+          borderColor: 'rgba(255, 255, 240, 0.3)',
+          color: '#FFFFF0'
+>>>>>>> fa6eb63bf372a6c0dfe027ec20384749f7d21118
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>

@@ -120,6 +120,7 @@ export default function Products() {
                         "{product.description}"
                       </p>
 
+<<<<<<< HEAD:src/pages/Products.jsx
 <ul className="grid grid-cols-1 gap-5"> {/* Subtle gap increase for impact */}
   {product.bullets.map((bullet, i) => (
     <li key={i} className="flex items-start gap-4 text-[#FFFFF0]/80 text-lg font-light leading-relaxed">
@@ -139,6 +140,16 @@ export default function Products() {
     </li>
   ))}
 </ul>
+=======
+                      <ul className="grid grid-cols-1 gap-4">
+                        {product.bullets.map((bullet, i) => (
+                          <li key={i} className="flex items-start gap-4 text-[#FFFFF0]/80 text-lg font-light leading-relaxed">
+                            <span className="text-[#FDFBD4] mt-2 shrink-0">●</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+>>>>>>> fa6eb63bf372a6c0dfe027ec20384749f7d21118:src/pages/FeasibilityStudy.jsx
                     </div>
                   </div>
                 </div>
