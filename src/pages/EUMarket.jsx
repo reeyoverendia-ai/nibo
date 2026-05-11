@@ -139,7 +139,7 @@ export default function EUMarket() {
     >
       <div className="flex justify-between items-start mb-8">
         {/* 🔍 FIX 1: Changed to Solid Ivory and increased font weight */}
-        <span className="text-[#FFFFF0] font-black text-3xl tracking-tighter opacity-90 group-hover:text-[#FFFFF4] transition-colors">
+        <span className="text-[#FFFFF0] font-black text-3xl tracking-tighter opacity-90 group-hover:text-[#FAEEC8] transition-colors">
           {card.id}
         </span>
         
@@ -161,7 +161,7 @@ export default function EUMarket() {
       </div>
 
       {/* High-visibility decorative line */}
-      <div className="w-16 h-[3px] bg-[#FFFFF4] mt-10 group-hover:w-full transition-all duration-700 opacity-100 shadow-[0_0_15px_rgba(135,174,115,0.3)]"></div>
+      <div className="w-16 h-[3px] bg-[#FAEEC8] mt-10 group-hover:w-full transition-all duration-700 opacity-100 shadow-[0_0_15px_rgba(135,174,115,0.3)]"></div>
     </div>
   ))}
 </div>
