@@ -111,7 +111,7 @@ export default function FeasibilityStudy() {
                         <h2 className="text-[#FFFFF0] text-4xl md:text-6xl font-black uppercase tracking-tight leading-none mb-2">
                           {product.title}
                         </h2>
-                        <p className="text-[#8E8680] font-black text-xs uppercase tracking-[0.4em]">
+                        <p className="text-[#FDFBD4] font-black text-xs uppercase tracking-[0.4em]">
                           {product.subtitle}
                         </p>
                       </div>
@@ -123,7 +123,7 @@ export default function FeasibilityStudy() {
                       <ul className="grid grid-cols-1 gap-4">
                         {product.bullets.map((bullet, i) => (
                           <li key={i} className="flex items-start gap-4 text-[#FFFFF0]/80 text-lg font-light leading-relaxed">
-                            <span className="text-[#8E8680] mt-2 shrink-0">●</span>
+                            <span className="text-[#FDFBD4] mt-2 shrink-0">●</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
