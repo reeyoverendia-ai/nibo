@@ -34,7 +34,7 @@ export default function Products() {
       image: "/bioluya.png"
     },
     {
-      title: "Growmore 4-0-48",
+      title: "Growmore",
       subtitle: "POTASSIUM SUPPLEMENT",
       description: "A targeted potassium supplement used from Month 5 onwards, working synergistically with NIBO biological inputs to support fruit density and post-harvest quality.",
       bullets: [
@@ -44,7 +44,7 @@ export default function Products() {
         "Drives heavier bunch weights and improved Brix levels",
         "Reduces synthetic NPK dependence"
       ],
-      image: "/assets/growmore1.png"
+      image: "/growmore1.png"
     }
   ];
 
