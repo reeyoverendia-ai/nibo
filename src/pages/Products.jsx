@@ -44,7 +44,7 @@ export default function Products() {
         "Drives heavier bunch weights and improved Brix levels",
         "Reduces synthetic NPK dependence"
       ],
-      image: "/assets/growmore-product.png"
+      image: "/assets/growmore1.png"
     }
   ];
 
