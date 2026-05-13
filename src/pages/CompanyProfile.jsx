@@ -59,13 +59,29 @@ export default function CompanyProfile() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {scienceHighlights.map((item) => (
-              <div key={item.id} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-[#E7E1DA]/10 flex items-center justify-center text-[#4A5D23] font-bold shrink-0 border border-white/5">{item.id}</div>
-                <div>
-                  <h3 className="text-[#FFFFF0] font-bold text-lg mb-2 uppercase tracking-wide">{item.title}</h3>
-                  <p className="text-[#FFFFF0]/60 font-light leading-relaxed text-sm">{item.text}</p>
-                </div>
-              </div>
+             <div key={item.id} className="flex gap-8 items-start mb-10"> {/* 🔍 Increased gap and margin for breathing room */}
+  
+  {/* 🔍 ID CIRCLE: Increased to w-12 h-12 to balance the larger text */}
+  <div className="w-12 h-12 rounded-full bg-[#E7E1DA]/10 flex items-center justify-center text-[#4A5D23] font-bold shrink-0 border border-white/5 text-xl">
+    {item.id}
+  </div>
+
+  <div>
+    {/* 🔍 TITLE: Bumped to text-xl for a stronger hierarchy */}
+    <h3 className="text-[#FFFFF0] font-bold text-xl mb-3 uppercase tracking-wide">
+      {item.title}
+    </h3>
+
+    {/* 🔍 DESCRIPTION: 
+        1. Changed from text-sm to text-lg (18px)
+        2. Increased opacity from /60 to /80 for high contrast
+        3. Added antialiased for sharper rendering on dark screens
+    */}
+    <p className="text-[#FFFFF0]/80 font-light leading-relaxed text-lg antialiased">
+      {item.text}
+    </p>
+  </div>
+</div>
             ))}
           </div>
         </section>
