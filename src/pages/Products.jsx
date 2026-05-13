@@ -74,7 +74,7 @@ export default function Products() {
             playsInline 
             className="w-full h-full object-cover object-center" 
           >
-            <source src="/nibo-bp.mp4" type="video/mp4" />
+            <source src="/nibo-bp2.mp4" type="video/mp4" />
           </video>
         </div>
 
