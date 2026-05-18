@@ -10,9 +10,9 @@ export default function ResultsPage() {
   ];
 
   const kpiData = [
-    { tag: "SIGATOKA & PANAMA DISEASE REDUCTION", value: "70–80%", desc: "Vs. untreated control plot. Infected plants showed full visible recovery within 2 months." },
-    { tag: "BUNCH WEIGHT — NIBO TREATED", value: "15–25 kg", desc: "Industry standard: 19 kg. NIBO plots achieved 10–12 functional leaves at bagging." },
-    { tag: "FUNCTIONAL LEAVES AT HARVEST", value: "6–7 retained", desc: "Indicative of superior disease resistance throughout the full 12-month crop cycle." },
+    { tag: "SIGATOKA & PANAMA DISEASE REDUCTION", value: "70 – 80%", desc: "Vs. untreated control plot. Infected plants showed full visible recovery within 2 months." },
+    { tag: "BUNCH WEIGHT — NIBO TREATED", value: "15 – 25 kg", desc: "Industry standard: 19 kg. NIBO plots achieved 10–12 functional leaves at bagging." },
+    { tag: "FUNCTIONAL LEAVES AT HARVEST", value: "6 – 7 retained", desc: "Indicative of superior disease resistance throughout the full 12-month crop cycle." },
     { tag: "SUCCESS CASE — AMOROSO FARM", value: "Panama Survivor", desc: "Infiltration stopped after just two applications; plant scheduled for harvest within 4 months." },
     { tag: "SOIL TRANSFORMATION RESULT", value: "Class C → Class A", desc: "Lower-quality 'Class C' soil becoming as productive as 'Class A' soil after 3 months." }
   ];
