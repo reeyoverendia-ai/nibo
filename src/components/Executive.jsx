@@ -2,7 +2,7 @@ import React from 'react';
 import { ShieldCheck, Leaf, FlaskConical, Beaker } from 'lucide-react';
 
 export default function Executive() {
-  const pillars = [
+const pillars = [
     {
       icon: <FlaskConical className="w-6 h-6 text-[#FAEEC8]" />,
       tag: "PHASE 01 — MOLECULAR ISOLATION",
@@ -10,6 +10,7 @@ export default function Executive() {
       desc: "Bypassing the structural compromises of traditional imported Cavendish by stabilizing enzymatic pathways at the source plot."
     },
     {
+      // 🔍 FIX: Changed to FlaskConical as well or ensure it maps to item.icon cleanly below
       icon: <ShieldCheck className="w-6 h-6 text-[#769c37]" />,
       tag: "PHASE 02 — DISEASE SUPPRESSION",
       title: "Panama Infiltration Stop",
@@ -22,7 +23,6 @@ export default function Executive() {
       desc: "Metabolic soil restructuring that permanently converts low-yield substrates into high-producing ecosystems inside of 90 days."
     }
   ];
-
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-[95rem] mx-auto px-8 md:px-12 relative z-10">
