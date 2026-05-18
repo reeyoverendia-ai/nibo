@@ -11,7 +11,7 @@ const pillars = [
     },
     {
       // 🔍 FIX: Changed to FlaskConical as well or ensure it maps to item.icon cleanly below
-      icon: <ShieldCheck className="w-6 h-6 text-[#769c37]" />,
+      icon: <ShieldCheck className="w-6 h-6 text-[#4A443F]" />,
       tag: "PHASE 02 — DISEASE SUPPRESSION",
       title: "Panama Infiltration Stop",
       desc: "Industrial-grade bio-defense systems stopping Sigatoka and Panama wilt spread within two applications, verified across active trial plots."
