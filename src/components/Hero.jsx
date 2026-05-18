@@ -13,7 +13,7 @@ export default function Hero() {
         poster="/hero-fallback-image.jpg"
         className="absolute top-0 left-0 w-full h-full object-cover md:object-center object-[70%_center] z-0"
       >
-        <source src="/nibo-bg2.mp4" type="video/mp4" />
+        <source src="/nibo-bg3.mp4" type="video/mp4" />
       </video>
 
       {/* 2. THE OVERLAY LAYER */}
