@@ -55,7 +55,7 @@ export default function CompanyProfile() {
         
 {/* 1. BUILT ON SCIENCE */}
         <section className="max-w-5xl">
-          <h1 className="text-[#4A5D23] text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
+          <h1 className="text-[#4A443F] text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
             {t('company.hero_line1')} <br />
             <span className="text-[#FFFFF0]">{t('company.hero_line2')}</span>
           </h1>
