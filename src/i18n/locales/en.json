@@ -108,6 +108,16 @@
     "strategy_quote": "\"We are now seeking strategic investment partners to scale operations and expand production capacity.\"",
     "strategy_btn": "Discuss Partnership"
   },
+  "objectives": {
+    "header_title_main": "Key",
+    "header_title_accent": "Objectives",
+    "obj_1_title": "Enhance Sustainable Farming",
+    "obj_1_desc": "Implementing regenerative practices that improve soil health and long-term ecosystem viability.",
+    "obj_2_title": "Improve Crop Yield & Quality",
+    "obj_2_desc": "Utilizing biological systems to maximize output while increasing nutrient density and flavor.",
+    "obj_3_title": "Promote Technological Adoption",
+    "obj_3_desc": "Bridging the gap between traditional methods and high-precision agricultural innovation."
+  },
   "eumarket": {
     "header_tag": "European Market Strategy",
     "header_title_top": "From Mindanao",
