@@ -54,13 +54,16 @@ export default function EUMarket() {
             {t('eumarket.header_tag')}
           </p>
           
-          {/* 🔍 FIXED MAIN HEADLINE:
-              - Swapped rigid text sizing for text-[6.5vw] on mobile screens to stop "EUROPÄISCHE" from cutting off.
-              - Standardized tracking-tighter and break-words to guarantee flawless responsiveness across all phone sizes.
+          {/* 🔍 FIXED FOR ABSOLUTE RESPONSIVENESS:
+              - Applied text-[6.2vw] across both translation outputs so that the entire text block scales proportionally to the phone's glass width.
+              - Set tracking-tighter to consolidate letter margins and keep characters away from the screen edge.
+              - Standardized font scaling seamlessly across both lines on mobile devices.
           */}
-          <h1 className="text-[#FFFFF0] text-[6.5vw] sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.05] md:leading-[0.85] mb-6 whitespace-normal break-words pr-2">
+          <h1 className="text-[#FFFFF0] text-[6.2vw] sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.85] mb-6 whitespace-normal break-words pr-2">
             {t('eumarket.header_title_top')} <br />
-            <span className="inline-block mt-1 md:mt-0 md:inline text-[#4A5D23]">to {t('eumarket.header_title_bottom')}</span>
+            <span className="inline-block mt-1 md:mt-0 md:inline text-[#4A5D23] text-[6.2vw] sm:text-6xl md:text-8xl">
+              to {t('eumarket.header_title_bottom')}
+            </span>
           </h1>
 
           <h2 className="text-[#FFFFF0] text-2xl sm:text-3xl md:text-5xl font-light italic tracking-tight mb-12 opacity-90">
