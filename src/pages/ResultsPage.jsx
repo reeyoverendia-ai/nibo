@@ -147,13 +147,16 @@ export default function ResultsPage() {
 
 {/* DISEASE SUPPRESSION */}
         <div className="mb-32">
-          {/* 🔍 OPTIMIZED: 
-              - Lowered text size ceiling to text-2xl on mobile viewports so "KRANKHEITSUNTERDRÜCKUNG" fits completely.
-              - Added 'whitespace-nowrap md:whitespace-normal' so the browser never splits the word on mobile screens.
+          {/* 🔍 OPTIMIZED FLUID DESIGN:
+              - Used text-[6.2vw] on mobile: This dynamically scales the massive word to be as large as humanly possible on your screen size without overflowing.
+              - Standardized font size across both lines on mobile to create perfect visual weight and balance.
+              - Set tracking-tighter on line 1 to pull the character footprint inward, giving it extra margin safety.
           */}
-          <h2 className="text-[#4A443F] text-2xl sm:text-5xl lg:text-6xl xl:text-7xl font-black uppercase tracking-tight mb-16 leading-tight whitespace-nowrap md:whitespace-normal break-normal">
+          <h2 className="text-[#4A443F] text-[6.2vw] sm:text-5xl lg:text-6xl xl:text-7xl font-black uppercase tracking-tighter mb-16 leading-[1.1] whitespace-nowrap md:whitespace-normal break-normal pr-2">
             {t('results.kpi_section_title_main')} <br />
-            <span className="inline-block mt-2 md:mt-0 md:inline">{t('results.kpi_section_title_sub')}</span>
+            <span className="inline-block mt-1 md:mt-0 md:inline tracking-normal text-[6.2vw] sm:text-5xl lg:text-6xl xl:text-7xl text-[#4A443F]">
+              {t('results.kpi_section_title_sub')}
+            </span>
           </h2>
           <div className="grid grid-cols-1 gap-8">
             {kpiData.map((kpi, idx) => (
