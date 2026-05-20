@@ -85,17 +85,16 @@ export default function EUMarket() {
               <div className="text-right">{t('eumarket.table_col_nibo')}</div>
             </div>
 
-            {/* RESPONSIVE FLUID ROWS - MATCHES SPREADSHEET LAYOUT ON MOBILE */}
+{/* RESPONSIVE FLUID ROWS - MATCHES SPREADSHEET LAYOUT ON MOBILE */}
             {comparisonData.map((row, i) => (
               <div 
                 key={i} 
-                /* 🔍 FIXED TABLE GRID STRUCTURE: Changed to block on mobile to enforce linear rows, returning to layout grid on desktop */
                 className="block md:grid md:grid-cols-3 py-6 md:py-10 border-b border-white/10 relative rounded-xl outline-none focus:outline-none group transition-all duration-300"
                 onMouseEnter={(e) => {
                   if (window.innerWidth >= 768) {
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
                     e.currentTarget.style.borderTopColor = 'rgba(250, 238, 200, 0.4)';
-                    e.currentTarget.style.boxShadow = '0 -5px 30px rgba(250, 238, 200, 0.45), 0 0 25px rgba(250, 238, 200, 0.3), inset 0 0 25px rgba(250, 238, 200, 0.15)';
+                    e.currentTarget.style.boxShadow = '0 -7px 35px rgba(250, 238, 200, 0.50), 0 0 35px rgba(250, 238, 200, 0.3), inset 0 0 25px rgba(250, 238, 200, 0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -112,31 +111,36 @@ export default function EUMarket() {
                 </div>
 
                 {/* 2. Linear Value Containers (Matches Excel Layout exactly on phone dimensions) */}
+                {/* 🔍 FIXED FOR MOBILE LINEAR SPLIT: 
+                   - Removed rigid flex-col block on mobile viewports.
+                   - Swapped to vertical layout space-y-3 structure containing full horizontal flex-row lines.
+                   - Added explicit max-w constraints on the right text values so long German words wrap elegantly right next to the label.
+                */}
                 <div className="flex flex-col gap-3 w-full md:contents mt-2 md:mt-0 pl-2 md:pl-0">
                   
-                  {/* Row A: Conventional Import Row */}
-                  <div className="flex justify-between items-center md:justify-end text-[#FFFFF0]/60 font-mono text-sm sm:text-base md:text-xl md:pr-8">
-                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#FFFFF0]/40 font-sans">
+                  {/* Row A: Conventional Import Row (Side-by-side on mobile, table column on desktop) */}
+                  <div className="flex flex-row justify-between items-start md:justify-end text-[#FFFFF0]/60 font-mono text-sm sm:text-base md:text-xl md:pr-8 w-full">
+                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#FFFFF0]/40 font-sans mt-0.5 shrink-0">
                       {t('eumarket.table_col_import')}
                     </span>
-                    <span>
+                    <span className="text-right max-w-[60%] md:max-w-none break-words leading-tight md:leading-normal">
                       {row.import.startsWith('eumarket.') ? t(row.import) : row.import}
                     </span>
                   </div>
 
-                  {/* Row B: NIBO Bio-System Row */}
-                  <div className="flex justify-between items-center md:justify-end font-mono text-base sm:text-lg md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform md:group-hover:scale-105">
-                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A5D23] font-sans">
+                  {/* Row B: NIBO Bio-System Row (Side-by-side on mobile, table column on desktop) */}
+                  <div className="flex flex-row justify-between items-start md:justify-end font-mono text-base sm:text-lg md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform md:group-hover:scale-105 w-full">
+                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A5D23] font-sans mt-1 shrink-0">
                       NIBO
                     </span>
-                    <span>
+                    <span className="text-right max-w-[60%] md:max-w-none break-words leading-tight md:leading-normal">
                       {row.nibo.startsWith('eumarket.') ? t(row.nibo) : row.nibo}
                     </span>
                   </div>
 
                 </div>
 
-                {/* THE UNDERLINE GLOW (Active on all screens through parent group triggers) */}
+                {/* THE UNDERLINE GLOW */}
                 <div className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-[#FAEEC8] group-hover:w-full transition-all duration-700 shadow-[0_-2px_20px_rgba(250,238,200,0.8),0_0_15px_#FAEEC8]"></div>
               </div>
             ))}
