@@ -53,7 +53,7 @@ export default function CompanyProfile() {
     <div className="min-h-screen bg-transparent pt-40 pb-20">
       <div className="max-w-7xl mx-auto px-8 md:px-12 space-y-40">
         
-        {/* 1. BUILT ON SCIENCE */}
+{/* 1. BUILT ON SCIENCE */}
         <section className="max-w-5xl">
           <h1 className="text-[#4A5D23] text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
             {t('company.hero_line1')} <br />
@@ -62,33 +62,10 @@ export default function CompanyProfile() {
           <p className="text-[#FFFFF0]/80 text-xl font-light mb-16 max-w-3xl">
             {t('company.hero_description')}
           </p>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {scienceHighlights.map((item) => (
-<<<<<<< HEAD
-             <div key={item.id} className="flex gap-8 items-start mb-10"> {/* 🔍 Increased gap and margin for breathing room */}
-  
-  {/* 🔍 ID CIRCLE: Increased to w-12 h-12 to balance the larger text */}
-  <div className="w-12 h-12 rounded-full bg-[#E7E1DA]/10 flex items-center justify-center text-[#4A5D23] font-bold shrink-0 border border-white/5 text-xl">
-    {item.id}
-  </div>
-
-  <div>
-    {/* 🔍 TITLE: Bumped to text-xl for a stronger hierarchy */}
-    <h3 className="text-[#FFFFF0] font-bold text-xl mb-3 uppercase tracking-wide">
-      {item.title}
-    </h3>
-
-    {/* 🔍 DESCRIPTION: 
-        1. Changed from text-sm to text-lg (18px)
-        2. Increased opacity from /60 to /80 for high contrast
-        3. Added antialiased for sharper rendering on dark screens
-    */}
-    <p className="text-[#FFFFF0]/80 font-light leading-relaxed text-lg antialiased">
-      {item.text}
-    </p>
-  </div>
-</div>
-=======
+              /* 🔍 FIXED: Removed the duplicated copy block entirely */
               <div key={item.id} className="flex gap-8 items-start mb-10"> 
                 
                 {/* ID CIRCLE */}
@@ -108,7 +85,6 @@ export default function CompanyProfile() {
                   </p>
                 </div>
               </div>
->>>>>>> b7d01ed (Translation implemented)
             ))}
           </div>
         </section>

@@ -39,13 +39,9 @@ export default function Products() {
     },
     {
       title: "Growmore",
-<<<<<<< HEAD
-      subtitle: "POTASSIUM SUPPLEMENT",
-      description: "A targeted potassium supplement used from Month 5 onwards, working synergistically with NIBO biological inputs to support fruit density and post-harvest quality.",
-=======
+      /* 🔍 FIXED: Removed raw merge conflict markers cleanly */
       subtitle: "products.growmore_subtitle",
       description: "products.growmore_description",
->>>>>>> b7d01ed (Translation implemented)
       bullets: [
         "products.growmore_bullet_1",
         "products.growmore_bullet_2",
@@ -162,7 +158,7 @@ export default function Products() {
             <p className="text-[#4A443F] font-black uppercase tracking-[0.4em] text-xs mb-4">
               {t('products.universal_tag')}
             </p>
-      {/* 🔍 FIX: Changed 'tracking-tighter' to 'tracking-wide' or 'tracking-normal' for perfect breathing room */}
+            {/* 🔍 MAINTAINED WORK: tracking-normal class left intact for clean spacing */}
             <h2 className="text-[#4A443F] text-5xl md:text-7xl font-black uppercase tracking-normal">
               {t('products.universal_heading')}
             </h2>

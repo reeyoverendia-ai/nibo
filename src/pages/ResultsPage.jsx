@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next'; // ✅ Kept for translation consistency
+import { useTranslation } from 'react-i18next';
 
 export default function ResultsPage() {
   const { t } = useTranslation();
@@ -13,15 +13,8 @@ export default function ResultsPage() {
     { label: "results.metric_total_expenses", standard: "€5,723.48", nibo: "€1,941.11", highlight: true },
   ];
 
-  // ✅ Localizing tags and descriptions via safe string references
+  // ✅ FIX: Cleaned array structure utilizing translation paths flawlessly without conflicts
   const kpiData = [
-<<<<<<< HEAD
-    { tag: "SIGATOKA & PANAMA DISEASE REDUCTION", value: "70 – 80%", desc: "Vs. untreated control plot. Infected plants showed full visible recovery within 2 months." },
-    { tag: "BUNCH WEIGHT — NIBO TREATED", value: "15 – 25 kg", desc: "Industry standard: 19 kg. NIBO plots achieved 10–12 functional leaves at bagging." },
-    { tag: "FUNCTIONAL LEAVES AT HARVEST", value: "6 – 7 retained", desc: "Indicative of superior disease resistance throughout the full 12-month crop cycle." },
-    { tag: "SUCCESS CASE — AMOROSO FARM", value: "Panama Survivor", desc: "Infiltration stopped after just two applications; plant scheduled for harvest within 4 months." },
-    { tag: "SOIL TRANSFORMATION RESULT", value: "Class C → Class A", desc: "Lower-quality 'Class C' soil becoming as productive as 'Class A' soil after 3 months." }
-=======
     { tag: "results.kpi_1_tag", value: "70 – 80%", desc: "results.kpi_1_desc" },
     { tag: "results.kpi_2_tag", value: "15 – 25 kg", desc: "results.kpi_2_desc" },
     { tag: "results.kpi_3_tag", value: "6 – 7 retained", desc: "results.kpi_3_desc" },
@@ -41,7 +34,6 @@ export default function ResultsPage() {
     { phase: "01", time: "results.phase_1_time", desc: "results.phase_1_desc" },
     { phase: "02", time: "results.phase_2_time", desc: "results.phase_2_desc" },
     { phase: "03", time: "results.phase_3_time", desc: "results.phase_3_desc" }
->>>>>>> b7d01ed (Translation implemented)
   ];
 
   return (
@@ -105,23 +97,13 @@ export default function ResultsPage() {
               <div className="text-right">{t('results.table_header_nibo')}</div>
             </div>
 
-{trialMetrics.map((row, i) => (
+            {trialMetrics.map((row, i) => (
               <div 
                 key={i} 
-                /* 🔍 FIXES APPLIED: 
-                   1. Removed 'overflow-hidden' so the outer side-auras can physically render outside the row lines.
-                   2. Added 'border-t border-t-transparent' to anchor the top edge lighting transition cleanly.
-                */
                 className="grid grid-cols-3 py-10 border-b border-t border-t-transparent border-white/10 items-center group transition-all duration-500 relative rounded-xl outline-none focus:outline-none"
-                
-                /* ⚡ DUAL-ACTION INTEGRATED SHADOWS & EDGE LIGHTING ⚡ */
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
-                  
-                  // Sharpens the top edge line of the active row container
                   e.currentTarget.style.borderTopColor = 'rgba(250, 238, 200, 0.4)';
-                  
-                  // Projects the premium upward-firing outer halo combined with your target internal inset glow
                   e.currentTarget.style.boxShadow = '0 -5px 30px rgba(250, 238, 200, 0.45), 0 0 25px rgba(250, 238, 200, 0.3), inset 0 0 25px rgba(250, 238, 200, 0.15)';
                 }}
                 onMouseLeave={(e) => {
@@ -145,20 +127,15 @@ export default function ResultsPage() {
                   {row.nibo}
                 </div>
 
-                {/* INTENSIFIED GOLD AURA ACCENT LINE (Maintained identical sweep functionality) */}
+                {/* INTENSIFIED GOLD AURA ACCENT LINE */}
                 <div className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-[#FAEEC8] group-hover:w-full transition-all duration-700 shadow-[0_-2px_20px_rgba(250,238,200,0.8),0_0_15px_#FAEEC8]"></div>
               </div>
             ))}
           </div>
         </div>
 
-{/* DISEASE SUPPRESSION */}
+        {/* DISEASE SUPPRESSION */}
         <div className="mb-32">
-          {/* 🔍 OPTIMIZED: 
-              - Lowered text size ceiling to text-4xl sm:text-5xl lg:text-6xl xl:text-7xl to prevent spilling over.
-              - Changed tracking to 'tracking-tight' for premium readability.
-              - Removed 'break-words' and 'hyphens-auto' so the word never splits apart artificially.
-          */}
           <h2 className="text-[#4A443F] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black uppercase tracking-tight mb-16 leading-tight whitespace-normal">
             {t('results.kpi_section_title_main')} <br />
             {t('results.kpi_section_title_sub')}
