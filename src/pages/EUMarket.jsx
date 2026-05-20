@@ -45,23 +45,24 @@ export default function EUMarket() {
   ];
 
   return (
-    <div className="min-h-screen bg-transparent pt-40 pb-20 px-8">
+    <div className="min-h-screen bg-transparent pt-32 sm:pt-40 pb-20 px-4 sm:px-8 overflow-x-hidden relative">
       <div className="max-w-7xl mx-auto">
         
         {/* HEADER SECTION */}
-        <div className="max-w-4xl mb-24">
-          <p className="text-[#4A443F] font-black uppercase tracking-[0.4em] text-xs mb-6">
+        <div className="max-w-4xl mb-24 px-2 sm:px-0">
+          {/* 🔍 FIXED HEADER TAG: Uses viewport spacing and ultra-tight tracking to stop 'DEUTSCHLAND' clipping on mobile screens */}
+          <p className="text-[#4A443F] font-black uppercase tracking-[0.25em] sm:tracking-[0.4em] text-[5.5vw] sm:text-xs mb-6 whitespace-nowrap break-normal tracking-tighter">
             {t('eumarket.header_tag')}
           </p>
-          <h1 className="text-[#FFFFF0] text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-6">
+          <h1 className="text-[#FFFFF0] text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tight md:tracking-tighter leading-[0.95] md:leading-[0.85] mb-6 whitespace-normal break-words">
             {t('eumarket.header_title_top')} <br />
             to <span className="text-[#4A5D23]">{t('eumarket.header_title_bottom')}</span>
           </h1>
-          <h2 className="text-[#FFFFF0] text-3xl md:text-5xl font-light italic tracking-tight mb-12 opacity-90">
+          <h2 className="text-[#FFFFF0] text-2xl sm:text-3xl md:text-5xl font-light italic tracking-tight mb-12 opacity-90">
             {t('eumarket.header_opportunity')}
           </h2>
-          <div className="border-l-2 border-[#4A5D23] pl-10">
-            <p className="text-[#FFFFF0]/80 text-xl leading-relaxed font-light max-w-2xl">
+          <div className="border-l-2 border-[#4A5D23] pl-6 md:pl-10">
+            <p className="text-[#FFFFF0]/80 text-lg md:text-xl leading-relaxed font-light max-w-2xl">
               {t('eumarket.header_description')}
             </p>
           </div>
@@ -69,54 +70,74 @@ export default function EUMarket() {
 
         {/* 1. MARKET COMPARISON TABLE (Glass Card Container) */}
         <div 
-          className="rounded-[4rem] border border-white/30 mb-32 shadow-2xl"
+          className="rounded-[2rem] md:rounded-[4rem] border border-white/30 mb-32 shadow-2xl"
           style={{ 
             backgroundColor: 'rgba(255, 255, 240, 0.05)', 
             backdropFilter: 'blur(50px)',
             WebkitBackdropFilter: 'blur(50px)'
           }}
         >
-          <div className="p-12 md:p-20">
-            {/* Table Header */}
-            <div className="grid grid-cols-3 pb-10 border-b-2 border-[#635D59]/20 text-xs font-black uppercase tracking-[0.4em] text-[#FDFBD4]">
+          <div className="p-5 sm:p-12 md:p-20">
+            {/* Table Header (Desktop only) */}
+            <div className="hidden md:grid grid-cols-3 pb-10 border-b-2 border-[#635D59]/20 text-xs font-black uppercase tracking-[0.4em] text-[#FDFBD4]">
               <div>{t('eumarket.table_col_metrics')}</div>
               <div className="text-right">{t('eumarket.table_col_import')}</div>
               <div className="text-right">{t('eumarket.table_col_nibo')}</div>
             </div>
 
-            {/* Table Rows with Electrified Aura Glow */}
+            {/* RESPONSIVE FLUID ROWS - MATCHES SPREADSHEET LAYOUT ON MOBILE */}
             {comparisonData.map((row, i) => (
               <div 
                 key={i} 
-                className="grid grid-cols-3 py-10 border-b border-t border-t-transparent border-white/10 items-center group transition-all duration-500 relative outline-none focus:outline-none"
+                /* 🔍 FIXED TABLE GRID STRUCTURE: Changed to block on mobile to enforce linear rows, returning to layout grid on desktop */
+                className="block md:grid md:grid-cols-3 py-6 md:py-10 border-b border-white/10 relative rounded-xl outline-none focus:outline-none group transition-all duration-300"
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
-                  e.currentTarget.style.borderTopColor = 'rgba(250, 238, 200, 0.4)';
-                  e.currentTarget.style.boxShadow = '0 -5px 30px rgba(250, 238, 200, 0.45), 0 0 25px rgba(250, 238, 200, 0.3), inset 0 0 25px rgba(250, 238, 200, 0.15)';
+                  if (window.innerWidth >= 768) {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
+                    e.currentTarget.style.borderTopColor = 'rgba(250, 238, 200, 0.4)';
+                    e.currentTarget.style.boxShadow = '0 -5px 30px rgba(250, 238, 200, 0.45), 0 0 25px rgba(250, 238, 200, 0.3), inset 0 0 25px rgba(250, 238, 200, 0.15)';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.borderTopColor = 'transparent';
-                  e.currentTarget.style.boxShadow = 'none';
+                  if (window.innerWidth >= 768) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.borderTopColor = 'transparent';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }
                 }}
               >
                 {/* 1. Metric Label */}
-                <div className="text-[#FFFFF0] font-black uppercase text-xl md:text-2xl tracking-tight transition-all duration-300 group-hover:translate-x-2">
+                <div className="text-[#FFFFF0] font-black uppercase text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight mb-4 md:mb-0 block w-full border-b border-white/5 pb-2 md:pb-0 md:border-0 transition-colors duration-300 group-hover:md:translate-x-2">
                   {row.metric.startsWith('eumarket.') ? t(row.metric) : row.metric}
                 </div>
 
-                {/* 2. Conventional Value */}
-                <div className="text-right text-[#FFFFF0]/60 font-mono text-xl md:text-2xl pr-8">
-                  {row.import.startsWith('eumarket.') ? t(row.import) : row.import}
+                {/* 2. Linear Value Containers (Matches Excel Layout exactly on phone dimensions) */}
+                <div className="flex flex-col gap-3 w-full md:contents mt-2 md:mt-0 pl-2 md:pl-0">
+                  
+                  {/* Row A: Conventional Import Row */}
+                  <div className="flex justify-between items-center md:justify-end text-[#FFFFF0]/60 font-mono text-sm sm:text-base md:text-xl md:pr-8">
+                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#FFFFF0]/40 font-sans">
+                      {t('eumarket.table_col_import')}
+                    </span>
+                    <span>
+                      {row.import.startsWith('eumarket.') ? t(row.import) : row.import}
+                    </span>
+                  </div>
+
+                  {/* Row B: NIBO Bio-System Row */}
+                  <div className="flex justify-between items-center md:justify-end font-mono text-base sm:text-lg md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform md:group-hover:scale-105">
+                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A5D23] font-sans">
+                      NIBO
+                    </span>
+                    <span>
+                      {row.nibo.startsWith('eumarket.') ? t(row.nibo) : row.nibo}
+                    </span>
+                  </div>
+
                 </div>
 
-                {/* 3. NIBO Value */}
-                <div className="text-right font-mono text-xl md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform group-hover:scale-105">
-                  {row.nibo.startsWith('eumarket.') ? t(row.nibo) : row.nibo}
-                </div>
-
-                {/* THE UNDERLINE GLOW */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#FFFFF0] group-hover:w-full transition-all duration-700 shadow-[0_0_25px_rgba(250,238,200,0.6)]"></div>
+                {/* THE UNDERLINE GLOW (Active on all screens through parent group triggers) */}
+                <div className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-[#FAEEC8] group-hover:w-full transition-all duration-700 shadow-[0_-2px_20px_rgba(250,238,200,0.8),0_0_15px_#FAEEC8]"></div>
               </div>
             ))}
           </div>
@@ -137,7 +158,7 @@ export default function EUMarket() {
             {alignmentCards.map((card, i) => (
               <div 
                 key={i}
-                className="card-glow group p-12 rounded-[3.5rem] border border-white/20 flex flex-col justify-between min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl relative overflow-hidden"
+                className="card-glow group p-8 sm:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/20 flex flex-col justify-between h-auto lg:min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl relative overflow-hidden"
                 style={{ 
                   backgroundColor: 'rgba(255, 255, 240, 0.04)', 
                   backdropFilter: 'blur(20px)',
@@ -145,24 +166,24 @@ export default function EUMarket() {
                 }}
               >
                 <div className="flex justify-between items-start mb-8">
-                  <span className="num-animate text-[#FFFFF0] font-black text-3xl tracking-tighter opacity-50 transition-all duration-500">
+                  <span className="num-animate text-[#FFFFF0] font-black text-2xl sm:text-3xl tracking-tighter opacity-50 transition-all duration-500">
                     {card.id}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-5 py-2 rounded-full">
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-4 sm:px-5 py-2 rounded-full">
                     {t(card.tag)}
                   </span>
                 </div>
 
-                <div>
-                  <h3 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-tight mb-6 leading-tight">
+                <div className="mb-6 md:mb-0">
+                  <h3 className="text-[#FFFFF0] text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 sm:mb-6 leading-tight">
                     {t(card.title)}
                   </h3>
-                  <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-xl">
+                  <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-base sm:text-xl">
                     {t(card.text)}
                   </p>
                 </div>
 
-                <div className="animate-draw w-16 h-[3px] bg-[#4A5D23] mt-10 transition-all duration-700 opacity-100"></div>
+                <div className="animate-draw w-16 h-[3px] bg-[#4A5D23] mt-6 lg:mt-10 transition-all duration-700 opacity-100"></div>
               </div>
             ))}
           </div>
