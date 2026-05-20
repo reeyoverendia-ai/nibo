@@ -110,6 +110,16 @@
     "strategy_quote": "\"Wir suchen derzeit nach strategischen Investitionspartnern, um den Betrieb zu skalieren und die Produktionskapazitäten zu erweitern.\"",
     "strategy_btn": "Partnerschaft Besprechen"
   },
+   "objectives": {
+    "header_title_main": "Haupt",
+    "header_title_accent": "Ziele",
+    "obj_1_title": "Nachhaltige Landwirtschaft",
+    "obj_1_desc": "Implementierung regenerativer Praktiken zur Verbesserung der Bodengesundheit und der langfristigen Lebensfähigkeit des Ökosystems.",
+    "obj_2_title": "Ertrag & Qualität Steigern",
+    "obj_2_desc": "Nutzung biologischer Systeme zur Maximierung der Produktion bei gleichzeitiger Erhöhung der Nährstoffdichte und des Geschmacks.",
+    "obj_3_title": "Technologische Adoption",
+    "obj_3_desc": "Überbrückung der Lücke zwischen traditionellen Methoden und hochpräziser landwirtschaftlicher Innovation."
+    },
   "eumarket": {
     "header_tag": "Europäische Marktstrategie",
     "header_title_top": "Von Mindanao",
