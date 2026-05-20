@@ -48,16 +48,21 @@ export default function EUMarket() {
     <div className="min-h-screen bg-transparent pt-32 sm:pt-40 pb-20 px-4 sm:px-8 overflow-x-hidden relative">
       <div className="max-w-7xl mx-auto">
         
-        {/* HEADER SECTION */}
+{/* HEADER SECTION */}
         <div className="max-w-4xl mb-24 px-2 sm:px-0">
-          {/* 🔍 FIXED HEADER TAG: Uses viewport spacing and ultra-tight tracking to stop 'DEUTSCHLAND' clipping on mobile screens */}
           <p className="text-[#4A443F] font-black uppercase tracking-[0.25em] sm:tracking-[0.4em] text-[5.5vw] sm:text-xs mb-6 whitespace-nowrap break-normal tracking-tighter">
             {t('eumarket.header_tag')}
           </p>
-          <h1 className="text-[#FFFFF0] text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tight md:tracking-tighter leading-[0.95] md:leading-[0.85] mb-6 whitespace-normal break-words">
+          
+          {/* 🔍 FIXED MAIN HEADLINE:
+              - Swapped rigid text sizing for text-[6.5vw] on mobile screens to stop "EUROPÄISCHE" from cutting off.
+              - Standardized tracking-tighter and break-words to guarantee flawless responsiveness across all phone sizes.
+          */}
+          <h1 className="text-[#FFFFF0] text-[6.5vw] sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.05] md:leading-[0.85] mb-6 whitespace-normal break-words pr-2">
             {t('eumarket.header_title_top')} <br />
-            to <span className="text-[#4A5D23]">{t('eumarket.header_title_bottom')}</span>
+            <span className="inline-block mt-1 md:mt-0 md:inline text-[#4A5D23]">to {t('eumarket.header_title_bottom')}</span>
           </h1>
+
           <h2 className="text-[#FFFFF0] text-2xl sm:text-3xl md:text-5xl font-light italic tracking-tight mb-12 opacity-90">
             {t('eumarket.header_opportunity')}
           </h2>
@@ -130,7 +135,7 @@ export default function EUMarket() {
 
                   {/* Row B: NIBO Bio-System Row (Side-by-side on mobile, table column on desktop) */}
                   <div className="flex flex-row justify-between items-start md:justify-end font-mono text-base sm:text-lg md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform md:group-hover:scale-105 w-full">
-                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A5D23] font-sans mt-1 shrink-0">
+                    <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A443F] font-sans mt-1 shrink-0">
                       NIBO
                     </span>
                     <span className="text-right max-w-[60%] md:max-w-none break-words leading-tight md:leading-normal">
