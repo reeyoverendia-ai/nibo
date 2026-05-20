@@ -1,39 +1,43 @@
 import React from 'react';
-
-const scienceCards = [
-  {
-    id: "01",
-    title: "Phosphorus Solubilization",
-    text: "NIBO's microbial consortium actively solubilises fixed nutrients through microbial acid production, making them immediately bioavailable without additional synthetic input."
-  },
-  {
-    id: "02",
-    title: "Competitive Exclusion",
-    text: "Beneficial microbial populations outcompete pathogenic organisms for root zone colonisation. With 175 strains creating a dense biological matrix, harmful pathogens are denied a foothold."
-  },
-  {
-    id: "03",
-    title: "Nitrogen Fixation Support",
-    text: "Microbial activity enhances nitrogen cycling, reducing synthetic nitrogen requirements and minimising nitrate leaching — a key benefit for modern agricultural compliance."
-  },
-  {
-    id: "04",
-    title: "Hormonal Activation",
-    text: "The system delivers three critical phytohormones — Auxin, Gibberellin, and Cytokinin — directly translating to heavier bunch weights and denser fruit development."
-  },
-  {
-    id: "05",
-    title: "Soil Temperature Buffering",
-    text: "NIBO's soil conditioner stabilises root zone temperatures and buffers soil acidity, directly reducing the energy load required for greenhouse soil heating."
-  },
-  {
-    id: "06",
-    title: "Microbial Antibiotic Production",
-    text: "Natural antibiotics inhibit destructive bacteria, fungi, and nematodes, creating a self-reinforcing cycle of soil health improvement with each application."
-  }
-];
+import { useTranslation } from 'react-i18next'; // ✅ Added translation hook import
 
 export default function TechnicalBrief() {
+  const { t } = useTranslation(); // ✅ Initialized translation hook
+
+  // ✅ Storing strictly the localization key string paths to protect page mounting
+  const scienceCards = [
+    {
+      id: "01",
+      title: "science.card_1_title",
+      text: "science.card_1_text"
+    },
+    {
+      id: "02",
+      title: "science.card_2_title",
+      text: "science.card_2_text"
+    },
+    {
+      id: "03",
+      title: "science.card_3_title",
+      text: "science.card_3_text"
+    },
+    {
+      id: "04",
+      title: "science.card_4_title",
+      text: "science.card_4_text"
+    },
+    {
+      id: "05",
+      title: "science.card_5_title",
+      text: "science.card_5_text"
+    },
+    {
+      id: "06",
+      title: "science.card_6_title",
+      text: "science.card_6_text"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-transparent pt-40 pb-20 px-8">
       <div className="max-w-7xl mx-auto">
@@ -41,17 +45,16 @@ export default function TechnicalBrief() {
         {/* HEADER SECTION */}
         <div className="max-w-4xl mb-20">
           <p className="text-[#4A5D23] font-black uppercase tracking-[0.4em] text-xs mb-4">
-            The Science
+            {t('science.header_tag')}
           </p>
           <h1 className="text-[#FFFFF0] text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
-            How the NIBO <br />
-            <span className="text-[#4A5D23]">Biological System</span> Works
+            {t('science.header_title_main')} <br />
+            <span className="text-[#4A5D23]">{t('science.header_title_accent')}</span>
           </h1>
           <p className="text-[#FFFFF0]/80 text-xl leading-relaxed font-light">
-            This is not "organic farming" in the conventional sense. This is 
-            <span className="text-[#FFFFF0] font-bold"> Microbial Synergism</span> — 
-            the deliberate orchestration of biological processes to outperform 
-            synthetic chemistry at a fraction of the cost.
+            {t('science.header_desc_start')}{' '}
+            <span className="text-[#FFFFF0] font-bold">{t('science.header_desc_bold')}</span>{' '}
+            {t('science.header_desc_end')}
           </p>
         </div>
 
@@ -74,10 +77,10 @@ export default function TechnicalBrief() {
 
               <div className="relative z-10">
                 <h3 className="text-[#4A5D23] font-black text-xl uppercase tracking-widest mb-4">
-                  {card.title}
+                  {t(card.title)}
                 </h3>
                 <p className="text-[#FFFFF0]/70 leading-relaxed font-light">
-                  {card.text}
+                  {t(card.text)}
                 </p>
               </div>
             </div>

@@ -1,68 +1,77 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; // ✅ Added translation hook import
 
 export default function Products() {
+  const { t } = useTranslation(); // ✅ Initialized translation hook
+
+  // ✅ Arrays use strictly key paths to pass down safely into render mappings
   const products = [
     {
       title: "Megamate",
-      subtitle: "ORGANIC SOIL CONDITIONER",
-      description: "A high-precision, bio-based soil restoration protocol. Megamate actively transforms your rhizosphere into a high-efficiency nutrient-delivery network using 175 strains of beneficial bacteria and fungi.",
+      subtitle: "products.megamate_subtitle",
+      description: "products.megamate_description",
       bullets: [
-        "Enhances soil structure and promotes root development",
-        "Improves nutrient availability — phosphorus & potassium unlocking",
-        "Stimulates beneficial microbial activity in the rhizosphere",
-        "Contains 3 natural growth hormones: Auxin, Gibberellin, Cytokinins",
-        "Produces natural antibiotics to inhibit destructive pathogens",
-        "Balances soil pH and helps soil retain moisture",
-        "Stabilises soil temperature around the root zone",
-        "Produces enzymes supporting nutrient cycling",
-        "Microbial insecticide properties for natural pest control"
+        "products.megamate_bullet_1",
+        "products.megamate_bullet_2",
+        "products.megamate_bullet_3",
+        "products.megamate_bullet_4",
+        "products.megamate_bullet_5",
+        "products.megamate_bullet_6",
+        "products.megamate_bullet_7",
+        "products.megamate_bullet_8",
+        "products.megamate_bullet_9"
       ],
       image: "/megamate.png" 
     },
     {
       title: "Bio Luy-a",
-      subtitle: "BIOLOGICAL FOLIAR SPRAY",
-      description: "A triple-action foliar biological spray combining insecticidal, fungicidal, and bactericidal effects. Suppresses both soil-borne and foliar pathogens without chemical residue.",
+      subtitle: "products.bioluya_subtitle",
+      description: "products.bioluya_description",
       bullets: [
-        "Natural pest suppression without residue",
-        "Prevents and controls fungal disease spread",
-        "Proven efficacy against Black Sigatoka in bananas",
-        "Suppresses Fusarium Wilt (Panama Disease)",
-        "Eligible for organic / \"bio\" labelling",
-        "Supports leaf canopy health for maximum photosynthesis"
+        "products.bioluya_bullet_1",
+        "products.bioluya_bullet_2",
+        "products.bioluya_bullet_3",
+        "products.bioluya_bullet_4",
+        "products.bioluya_bullet_5",
+        "products.bioluya_bullet_6"
       ],
       image: "/bioluya.png"
     },
     {
       title: "Growmore",
+<<<<<<< HEAD
       subtitle: "POTASSIUM SUPPLEMENT",
       description: "A targeted potassium supplement used from Month 5 onwards, working synergistically with NIBO biological inputs to support fruit density and post-harvest quality.",
+=======
+      subtitle: "products.growmore_subtitle",
+      description: "products.growmore_description",
+>>>>>>> b7d01ed (Translation implemented)
       bullets: [
-        "High-potassium (48%) formulation for fruit quality",
-        "Used in Phase 3 of the NIBO protocol (Months 7–12)",
-        "Paired with Megamate 2L for maximum absorption",
-        "Drives heavier bunch weights and improved Brix levels",
-        "Reduces synthetic NPK dependence"
+        "products.growmore_bullet_1",
+        "products.growmore_bullet_2",
+        "products.growmore_bullet_3",
+        "products.growmore_bullet_4",
+        "products.growmore_bullet_5"
       ],
       image: "/growmore1.png"
     }
   ];
 
   const cropData = [
-    { title: "Banana", desc: "Proven 70–80% Panama Disease and Sigatoka suppression. Bunch weights of 15–25 kg. Premium gourmet positioning." },
-    { title: "Tomatoes & Peppers", desc: "NIBO's phosphorus unlocking and Fusarium suppression address Germany's most critical greenhouse pain points." },
-    { title: "Cucumbers & Salad", desc: "High-value, fast-cycle crops where microbial nutrient delivery delivers rapid return on investment." },
-    { title: "Soft Fruit", desc: "Documented sugar content improvements and reduced fungal disease pressure in strawberries and blueberries." },
-    { title: "Rice", desc: "Improved nitrogen cycling, root development, and yield improvement under the NIBO biological protocol." },
-    { title: "Coconut & Palm Oil", desc: "Documented €125/hectare reduction in synthetic fertiliser costs — validated and replicable." },
-    { title: "Cereals", desc: "Supports large-scale cereal systems — a long-term soil health investment compounding season over season." },
-    { title: "Degraded Land", desc: "Documented recovery of abandoned fields. Class C soil upgraded to Class A productivity." }
+    { title: "products.crop_1_title", desc: "products.crop_1_desc" },
+    { title: "products.crop_2_title", desc: "products.crop_2_desc" },
+    { title: "products.crop_3_title", desc: "products.crop_3_desc" },
+    { title: "products.crop_4_title", desc: "products.crop_4_desc" },
+    { title: "products.crop_5_title", desc: "products.crop_5_desc" },
+    { title: "products.crop_6_title", desc: "products.crop_6_desc" },
+    { title: "products.crop_7_title", desc: "products.crop_7_desc" },
+    { title: "products.crop_8_title", desc: "products.crop_8_desc" }
   ];
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#667b68]">
       
-      {/* 🔍 WRAPPER START */}
+      {/* WRAPPER START */}
       <div className="relative w-full">
         
         {/* VIDEO BACKGROUND */}
@@ -87,7 +96,9 @@ export default function Products() {
               <h1 className="text-[#FFFFF0] text-6xl sm:text-7xl md:text-9xl font-black uppercase tracking-tight md:tracking-tighter leading-[0.9] md:leading-[0.8] mb-6">
                 MEGAMATE & <br /> <span className="text-[#8E8680]">BIOLUY-A</span>
               </h1>
-              <p className="text-[#FFFFF0] text-2xl font-light italic opacity-80">The Science behind the Success</p>
+              <p className="text-[#FFFFF0] text-2xl font-light italic opacity-80">
+                {t('products.header_subtext')}
+              </p>
             </div>
 
             {/* PRODUCT CARDS LOOP */}
@@ -112,12 +123,12 @@ export default function Products() {
                           {product.title}
                         </h2>
                         <p className="text-[#FDFBD4] font-black text-xs uppercase tracking-[0.4em]">
-                          {product.subtitle}
+                          {t(product.subtitle)}
                         </p>
                       </div>
 
                       <p className="text-[#FFFFF0]/95 text-2xl md:text-3xl leading-tight font-light mb-10 italic tracking-tight">
-                        "{product.description}"
+                        "{t(product.description)}"
                       </p>
 
                       <ul className="grid grid-cols-1 gap-5">
@@ -127,7 +138,7 @@ export default function Products() {
                               ●
                             </span>
                             <span className="flex-1">
-                              {bullet}
+                              {t(bullet)}
                             </span>
                           </li>
                         ))}
@@ -148,8 +159,13 @@ export default function Products() {
       >
         <div className="max-w-[90rem] mx-auto">
           <div className="mb-20">
-            <p className="text-[#4A443F] font-black uppercase tracking-[0.4em] text-xs mb-4">Crop Applicability</p>
-            <h2 className="text-[#4A443F] text-5xl md:text-7xl font-black uppercase tracking-tighter">Universal System</h2>
+            <p className="text-[#4A443F] font-black uppercase tracking-[0.4em] text-xs mb-4">
+              {t('products.universal_tag')}
+            </p>
+      {/* 🔍 FIX: Changed 'tracking-tighter' to 'tracking-wide' or 'tracking-normal' for perfect breathing room */}
+            <h2 className="text-[#4A443F] text-5xl md:text-7xl font-black uppercase tracking-normal">
+              {t('products.universal_heading')}
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -159,8 +175,12 @@ export default function Products() {
                 className="p-8 rounded-[2.5rem] border border-white/20"
                 style={{ backgroundColor: 'rgba(255, 255, 240, 0.08)', backdropFilter: 'blur(30px)' }}
               >
-                <h3 className="text-[#4A443F] text-xl font-black uppercase mb-4">{item.title}</h3>
-                <p className="text-[#FFFFF0] text-sm leading-relaxed font-light">{item.desc}</p>
+                <h3 className="text-[#4A443F] text-xl font-black uppercase mb-4">
+                  {t(item.title)}
+                </h3>
+                <p className="text-[#FFFFF0] text-sm leading-relaxed font-light">
+                  {t(item.desc)}
+                </p>
               </div>
             ))}
           </div>

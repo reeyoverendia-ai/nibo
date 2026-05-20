@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next'; // ✅ Added translation hook import
 
 export default function Contact() {
+  const { t } = useTranslation(); // ✅ Initialized translation hook
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    const response = await fetch("https://formspree.io/f/mdabpype", {
+    const response = await fetch("https://formspree.io/f/xaqkqklz", {
       method: "POST",
       body: data,
       headers: { 'Accept': 'application/json' }
@@ -21,6 +23,7 @@ export default function Contact() {
     }
   };
 
+  // 💎 GLOW PROTECTION: Kept completely identical so your custom glowing glass boxes are untouched
   const inputStyle = "w-full p-5 rounded-2xl transition-all duration-500 border border-white/20 outline-none placeholder:text-[#4A443F]/40 text-[#4A443F] bg-white/10 hover:bg-white/20 focus:bg-white/30 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] focus:shadow-[0_0_35px_rgba(255,255,255,0.5)]";
 
   return (
@@ -41,18 +44,22 @@ export default function Contact() {
         <div className="w-full lg:w-5/12 p-12 md:p-16 bg-white/10 border-b lg:border-b-0 lg:border-r border-white/20 flex flex-col justify-between relative z-10">
           <div>
             <h2 className="text-4xl font-black text-[#4A443F] uppercase tracking-tighter mb-10">
-              Contact <br /> Intelligence
+              {t('contact.title_line1')}<br />{t('contact.title_line2')}
             </h2>
             
             <div className="space-y-10">
               <div>
-                <p className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-[0.4em] mb-3">Electronic Correspondence</p>
+                <p className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-[0.4em] mb-3">
+                  {t('contact.label_email')}
+                </p>
                 <p className="text-[#4A443F] font-medium text-base mb-1">nibofertilizer@gmail.com</p>
                 <p className="text-[#4A443F] font-medium text-base">joyfuljelai75@gmail.com</p>
               </div>
 
               <div>
-                <p className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-[0.4em] mb-3">Global Terminals</p>
+                <p className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-[0.4em] mb-3">
+                  {t('contact.label_terminals')}
+                </p>
                 <p className="text-[#4A443F] font-medium text-base mb-1">DE: +49 155 1022 6237</p>
                 <p className="text-[#4A443F] font-medium text-base">PH: +63 909 343 8332</p>
               </div>
@@ -67,7 +74,7 @@ export default function Contact() {
               className="relative inline-flex items-center gap-2 text-[#FDFBD4] text-sm font-black uppercase tracking-[0.3em] transition-all duration-500 group"
             >
               <span className="relative z-10 group-hover:drop-shadow-[0_0_15px_rgba(253,251,212,0.7)] transition-all duration-500">
-                LinkedIn Profile →
+                {t('contact.link_linkedin')} →
               </span>
               <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#FDFBD4]/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-0"></span>
             </a>
@@ -76,27 +83,37 @@ export default function Contact() {
 
         {/* RIGHT COLUMN */}
         <div className="w-full lg:w-7/12 p-12 md:p-16 relative z-10">
-          {status === "SUCCESS" ? (
+{status === "SUCCESS" ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-6">
               <div className="w-20 h-20 bg-[#A9C9B0] rounded-full flex items-center justify-center text-white text-4xl shadow-xl">✓</div>
-              <h3 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-tighter leading-tight">Thank you for <br/>reaching out.</h3>
-              <p className="text-[#FFFFF0]/60 max-w-xs font-light">The Nibo team will be in touch with you shortly.</p>
-              <button onClick={() => setStatus("")} className="text-[#FDFBD4] text-xs font-black uppercase tracking-widest hover:underline mt-4">New Message</button>
+              
+              {/* 🔍 FIX: Changed 'tracking-tighter' to 'tracking-normal' or 'tracking-wide' for premium readability */}
+              <h3 className="text-[#FFFFF0] text-3xl font-black uppercase tracking-normal leading-tight">
+                {t('contact.success_title_line1')} <br/>{t('contact.success_title_line2')}
+              </h3>
+              
+              <p className="text-[#FFFFF0]/60 max-w-xs font-light">
+                {t('contact.success_description')}
+              </p>
+              <button onClick={() => setStatus("")} className="text-[#FDFBD4] text-xs font-black uppercase tracking-widest hover:underline mt-4">
+                {t('contact.btn_new_message')}
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="mb-6">
                 <h3 className="text-[#4A443F] text-3xl md:text-4xl font-black uppercase tracking-[0.2em] mb-4 leading-none">
-                  Partner with NIBO
+                  {t('contact.form_heading')}
                 </h3>
                 <p className="text-[#FFFFF0] text-xl md:text-2xl font-normal leading-relaxed tracking-wide">
-                  Secure your supply chain with industrial-grade solutions.
+                  {t('contact.form_subheading')}
                 </p>
               </div>
 
-              <input type="text" name="name" required placeholder="Full Name" className={inputStyle} />
-              <input type="email" name="email" required placeholder="Corporate Email" className={inputStyle} />
-              <textarea name="message" required rows="4" placeholder="Your Message" className={inputStyle} />
+              {/* ✅ Localized placeholders using translation calls inside input elements */}
+              <input type="text" name="name" required placeholder={t('contact.placeholder_name')} className={inputStyle} />
+              <input type="email" name="email" required placeholder={t('contact.placeholder_email')} className={inputStyle} />
+              <textarea name="message" required rows="4" placeholder={t('contact.placeholder_message')} className={inputStyle} />
 
               <button 
                 type="submit"
@@ -109,7 +126,7 @@ export default function Contact() {
                 }}
               >
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <span className="relative z-10">Send Inquiry</span>
+                <span className="relative z-10">{t('contact.btn_submit')}</span>
               </button>
             </form>
           )}

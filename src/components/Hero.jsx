@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+
 
 export default function Hero() {
+  const { t } = useTranslation(); // 2. Initialize it
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center">
       {/* 1. THE VIDEO LAYER */}
@@ -15,7 +19,11 @@ export default function Hero() {
       >
         <source src="/nibo-bg4.mp4" type="video/mp4" />
       </video>
-
+       <h1 className="...">
+      {/* 🔍 Make sure the keys match your en.json exactly */}
+      {t('hero.title_top')} <br />
+      to <span className="text-[#4A5D23]">{t('hero.title_bottom')}</span>
+    </h1>
       {/* 2. THE OVERLAY LAYER */}
       <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-10"></div>
 
@@ -33,21 +41,22 @@ export default function Hero() {
               color: '#FFFFF0'
             }}
           >
-            Cultivating the Future of Agriculture
-          </span>
+            <span>{t('hero1.cultivate')}</span></span>
+          
+          
           
           {/* HEADLINE SECTION */}
           <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[8xl] font-black leading-[0.95] md:leading-[0.9] tracking-tighter mb-2 md:mb-10 uppercase break-words">
-            <span style={{ color: '#FFFFF0' }}>High-Precision</span> <br />
-            <span style={{ color: '#87AE73' }}>Biological Systems</span> <br />
+            <span style={{ color: '#FFFFF0' }}>{t('high-precision')}</span> <br />
+            <span style={{ color: '#87AE73' }}>{t('biological-systems')}</span> <br />
             <span className="text-2xl md:text-4xl lg:text-5xl block mt-2 tracking-normal font-bold" style={{ color: '#FFFFF0', opacity: 0.8 }}>
-              for Climate-Resilient Farming
+              {t('for-climate-resilient-farming')}
             </span>
           </h1>
 
           {/* PARAGRAPH SECTION */}
           <p className="text-base md:text-xl max-w-2xl font-light leading-relaxed mb-4 md:mb-10" style={{ color: '#FFFFF0', opacity: 0.9 }}>
-            NIBO engineers high-performance nutrient delivery systems designed for the next generation of industrial agriculture.
+           {t('nibo-engineers-high-performance-nutrient-delivery-systems-designed-for-the-next-generation-of-industrial-agriculture')}
           </p>
 
           {/* BUTTONS SECTION */}
@@ -62,7 +71,7 @@ export default function Hero() {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
-              <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Our Solutions</span>
+              <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">{t('our-solutions')}</span>
             </Link>
 
             <Link 
@@ -75,7 +84,7 @@ export default function Hero() {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
-              <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">Field Testimonials</span>
+              <span className="relative z-10 group-hover:text-[#FDFBD4] transition-colors">{t('field-testimonials')}</span>
             </Link>
           </div>
         </div>

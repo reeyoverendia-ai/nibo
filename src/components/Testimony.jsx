@@ -1,30 +1,34 @@
 import React from 'react';
-
-const testimonials = [
-  {
-    tag: "PANAMA DISEASE RECOVERY",
-    text: "Too soon to quit when you found the Megamate! After years of losses from Panama infection, our plants are survivors. The results speak for themselves — the plant speaks itself.",
-    farm: "Amoroso Farm",
-    location: "Panabo, Davao del Norte — Panama-infected bearing plant treated May 2021, harvested September 2021",
-    initials: "AF"
-  },
-  {
-    tag: "2-MONTH FULL RECOVERY",
-    text: "Plants infected by Panama recovered after just two months of NIBO treatment. Panama infiltration has stopped. We saw results we had never achieved with any conventional product.",
-    farm: "Attorney Cameros Farm",
-    location: "Philippines — Two applications halted Panama disease spread entirely",
-    initials: "AC"
-  },
-  {
-    tag: "SOIL CLASS TRANSFORMATION",
-    text: "We had Class C soil that nobody believed could be productive. After NIBO, we're getting yields that match Class A farmland. The root system alone tells the whole story.",
-    farm: "King's Farm",
-    location: "San Miguel, Bulacan — NIBO trial co-supervisor; field partner for 1-hectare controlled trial",
-    initials: "KF"
-  }
-];
+import { useTranslation } from 'react-i18next'; // ✅ Added translation hook import
 
 export default function Testimony() {
+  const { t } = useTranslation(); // ✅ Initialized translation hook
+
+  // ✅ Inside the static data array, we store strictly the lookup key string names
+  const testimonials = [
+    {
+      tag: "testimonials.item_1_tag",
+      text: "testimonials.item_1_text",
+      farm: "testimonials.item_1_farm",
+      location: "testimonials.item_1_location",
+      initials: "AF" // Initials don't require translation translation
+    },
+    {
+      tag: "testimonials.item_2_tag",
+      text: "testimonials.item_2_text",
+      farm: "testimonials.item_2_farm",
+      location: "testimonials.item_2_location",
+      initials: "AC"
+    },
+    {
+      tag: "testimonials.item_3_tag",
+      text: "testimonials.item_3_text",
+      farm: "testimonials.item_3_farm",
+      location: "testimonials.item_3_location",
+      initials: "KF"
+    }
+  ];
+
   return (
     <section id="field-testimonials" className="w-full py-20">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
@@ -32,13 +36,13 @@ export default function Testimony() {
         {/* HEADER SECTION */}
         <div className="mb-16">
           <p className="text-[#4A5D23] font-black uppercase tracking-[0.4em] text-xs mb-4">
-            Field Testimonials
+            {t('testimonials.header_tag')}
           </p>
           <h2 className="text-[#FFFFF0] text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">
-            What Farmers <span className="text-[#4A5D23]">Say</span>
+            {t('testimonials.header_title_main')} <span className="text-[#4A5D23]">{t('testimonials.header_title_accent')}</span>
           </h2>
           <p className="text-[#FFFFF0]/70 text-lg max-w-2xl font-light">
-            Documented outcomes from growers across the Philippines using NIBO Megamate and Bio Luy-a in real farm conditions.
+            {t('testimonials.header_description')}
           </p>
         </div>
 
@@ -60,11 +64,14 @@ export default function Testimony() {
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg mb-8 border border-white/10">
                   <span className="text-[#FDFBD4] text-xs font-bold">✓</span>
-                  <span className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-widest">{item.tag}</span>
+                  {/* ✅ Evaluates localized text tag dynamically inside layout render */}
+                  <span className="text-[#FFFFF0] text-[10px] font-black uppercase tracking-widest">
+                    {t(item.tag)}
+                  </span>
                 </div>
 
                 <p className="text-[#FFFFF0]/80 italic leading-relaxed mb-10 font-light">
-                  "{item.text}"
+                  "{t(item.text)}"
                 </p>
               </div>
 
@@ -81,10 +88,15 @@ export default function Testimony() {
                   {item.initials}
                 </div>
                 <div>
-                  <h4 className="text-[#FFFFF0] font-bold text-sm uppercase tracking-wide">{item.farm}</h4>
+                  <h4 className="text-[#FFFFF0] font-bold text-sm uppercase tracking-wide">
+                    {t(item.farm)}
+                  </h4>
                   <p 
-  className="text-[#FFFFF0]/80 text-xs font-medium leading-tight mt-1 antialiased"
-  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>{item.location}</p>
+                    className="text-[#FFFFF0]/80 text-xs font-medium leading-tight mt-1 antialiased"
+                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
+                  >
+                    {t(item.location)}
+                  </p>
                 </div>
               </div>
             </div>
