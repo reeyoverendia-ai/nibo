@@ -54,14 +54,14 @@ export default function EUMarket() {
             {t('eumarket.header_tag')}
           </p>
           
-          {/* 🔍 FIXED FOR ABSOLUTE RESPONSIVENESS:
-              - Applied text-[6.2vw] across both translation outputs so that the entire text block scales proportionally to the phone's glass width.
-              - Set tracking-tighter to consolidate letter margins and keep characters away from the screen edge.
-              - Standardized font scaling seamlessly across both lines on mobile devices.
+          {/* 🔍 OPTIMIZED RESPONSIVE BREAK:
+              - Restored the bold, premium layout size (text-5xl sm:text-6xl md:text-8xl) since it safely breaks now.
+              - The main title stays on line 1.
+              - The accent green text changes to 'block' on mobile to drop cleanly underneath, and returns to 'md:inline' on desktop.
           */}
-          <h1 className="text-[#FFFFF0] text-[6.2vw] sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.85] mb-6 whitespace-normal break-words pr-2">
-            {t('eumarket.header_title_top')} <br />
-            <span className="inline-block mt-1 md:mt-0 md:inline text-[#4A5D23] text-[6.2vw] sm:text-6xl md:text-8xl">
+          <h1 className="text-[#FFFFF0] text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.95] md:leading-[0.85] mb-6 whitespace-normal break-words">
+            {t('eumarket.header_title_top')}{' '}
+            <span className="block md:inline text-[#4A5D23] mt-2 md:mt-0">
               to {t('eumarket.header_title_bottom')}
             </span>
           </h1>
@@ -75,7 +75,6 @@ export default function EUMarket() {
             </p>
           </div>
         </div>
-
         {/* 1. MARKET COMPARISON TABLE (Glass Card Container) */}
         <div 
           className="rounded-[2rem] md:rounded-[4rem] border border-white/30 mb-32 shadow-2xl"
