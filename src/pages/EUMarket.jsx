@@ -54,14 +54,16 @@ export default function EUMarket() {
             {t('eumarket.header_tag')}
           </p>
           
-          {/* 🔍 OPTIMIZED RESPONSIVE BREAK:
-              - Restored the bold, premium layout size (text-5xl sm:text-6xl md:text-8xl) since it safely breaks now.
-              - The main title stays on line 1.
-              - The accent green text changes to 'block' on mobile to drop cleanly underneath, and returns to 'md:inline' on desktop.
+          {/* 🔍 PRODUCTION-PROOF RESPONSIVE BLOCK:
+              - Wrapped the top text in a 'span' to force standard browser block boundaries.
+              - Set the second line to 'block md:inline-block' so it explicitly drops below on live mobile viewports.
+              - Added a explicit margin spacer (md:ml-4) to safely separate them on desktop screens when they merge onto one line.
           */}
-          <h1 className="text-[#FFFFF0] text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.95] md:leading-[0.85] mb-6 whitespace-normal break-words">
-            {t('eumarket.header_title_top')}{' '}
-            <span className="block md:inline text-[#4A5D23] mt-2 md:mt-0">
+          <h1 className="text-[#FFFFF0] text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.05] md:leading-[0.85] mb-6 whitespace-normal break-words">
+            <span className="inline md:inline-block">
+              {t('eumarket.header_title_top')}
+            </span>
+            <span className="block md:inline-block text-[#4A5D23] mt-2 md:mt-0 md:ml-4">
               to {t('eumarket.header_title_bottom')}
             </span>
           </h1>
