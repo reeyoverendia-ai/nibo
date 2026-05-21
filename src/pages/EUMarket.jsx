@@ -75,6 +75,7 @@ export default function EUMarket() {
             </p>
           </div>
         </div>
+
         {/* 1. MARKET COMPARISON TABLE (Glass Card Container) */}
         <div 
           className="rounded-[2rem] md:rounded-[4rem] border border-white/30 mb-32 shadow-2xl"
