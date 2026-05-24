@@ -54,12 +54,26 @@ export default function CompanyProfile() {
       <div className="max-w-7xl mx-auto px-8 md:px-12 space-y-40">
         
 {/* 1. BUILT ON SCIENCE */}
-        <section className="max-w-5xl">
-          <h1 className="text-[#4A443F] text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
-            {t('company.hero_line1')} <br />
-            <span className="text-[#FFFFF0]">{t('company.hero_line2')}</span>
+        <section className="max-w-5xl px-2 sm:px-0">
+          {/* 🔍 FIXED FOR GERMAN WORD INFLATION:
+              - Adjusted mobile text to text-5xl to ensure "WISSENSCHAFT" fits within the physical screen boundaries.
+              - Added a mobile-only <br /> to guarantee line breaks split cleanly on phones without bleeding over the edges.
+              - Set tracking-tighter to tighten up character margins beautifully.
+          */}
+          <h1 className="text-[#4A5D23] text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.05] md:leading-none mb-8 whitespace-normal break-words pr-4">
+            <span>
+              {t('company.hero_line1')}
+            </span>
+            
+            {/* Forces the next long German word to start fresh on a new line on mobile panels */}
+            <br className="block md:hidden" />
+            
+            <span className="text-[#FFFFF0] md:ml-4 inline-block mt-1 md:mt-0">
+              {t('company.hero_line2')}
+            </span>
           </h1>
-          <p className="text-[#FFFFF0]/80 text-xl font-light mb-16 max-w-3xl">
+          
+          <p className="text-[#FFFFF0]/80 text-lg md:text-xl font-light mb-16 max-w-3xl">
             {t('company.hero_description')}
           </p>
           
