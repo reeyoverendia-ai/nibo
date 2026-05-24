@@ -25,7 +25,7 @@ export default function Testimony() {
       text: "testimonials.item_3_text",
       farm: "testimonials.item_3_farm",
       location: "testimonials.item_3_location",
-      initials: "KF"
+      initials: "LF"
     }
   ];
 
