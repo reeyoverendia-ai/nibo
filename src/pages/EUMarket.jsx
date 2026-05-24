@@ -2,7 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function EUMarket() {
-  const { t } = useTranslation();
+  // 🔍 FIXED: Destructured both 't' and 'i18n' to resolve the undefined compile error
+  const { t, i18n } = useTranslation();
 
   // ✅ Clean data array using raw translation key paths
   const comparisonData = [
@@ -48,22 +49,22 @@ export default function EUMarket() {
     <div className="min-h-screen bg-transparent pt-32 sm:pt-40 pb-20 px-4 sm:px-8 overflow-x-hidden relative">
       <div className="max-w-7xl mx-auto">
         
-{/* HEADER SECTION */}
+        {/* HEADER SECTION */}
         <div className="max-w-4xl mb-24 px-2 sm:px-0">
           <p className="text-[#4A443F] font-black uppercase tracking-[0.25em] sm:tracking-[0.4em] text-[5.5vw] sm:text-xs mb-6 whitespace-nowrap break-normal tracking-tighter">
             {t('eumarket.header_tag')}
           </p>
           
-          {/* 🔍 PRODUCTION-PROOF RESPONSIVE BLOCK:
-              - Wrapped the top text in a 'span' to force standard browser block boundaries.
-              - Set the second line to 'block md:inline-block' so it explicitly drops below on live mobile viewports.
-              - Added a explicit margin spacer (md:ml-4) to safely separate them on desktop screens when they merge onto one line.
+          {/* 🔍 PRODUCTION-PROOF BREAK ENGINE: 
+              - Forces a clean line split on mobile using the <br /> block visibility technique
+              - Completely prevents production code engines from welding strings together
           */}
-          <h1 className="text-[#FFFFF0] text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.05] md:leading-[0.85] mb-6 whitespace-normal break-words">
-            <span className="inline md:inline-block">
+          <h1 className="block w-full text-[#FFFFF0] text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.85] mb-6 whitespace-normal break-words">
+            <span>
               {t('eumarket.header_title_top')}
             </span>
-            <span className="block md:inline-block text-[#4A5D23] mt-2 md:mt-0 md:ml-4">
+            <br className="block md:hidden" />
+            <span className="text-[#4A5D23] md:ml-4 inline-block mt-2 md:mt-0">
               to {t('eumarket.header_title_bottom')}
             </span>
           </h1>
@@ -95,7 +96,7 @@ export default function EUMarket() {
               <div className="text-right">{t('eumarket.table_col_nibo')}</div>
             </div>
 
-{/* RESPONSIVE FLUID ROWS - MATCHES SPREADSHEET LAYOUT ON MOBILE */}
+            {/* RESPONSIVE FLUID ROWS - MATCHES SPREADSHEET LAYOUT ON MOBILE */}
             {comparisonData.map((row, i) => (
               <div 
                 key={i} 
@@ -115,20 +116,15 @@ export default function EUMarket() {
                   }
                 }}
               >
-                {/* 1. Metric Label */}
+                {/* Metric Label */}
                 <div className="text-[#FFFFF0] font-black uppercase text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight mb-4 md:mb-0 block w-full border-b border-white/5 pb-2 md:pb-0 md:border-0 transition-colors duration-300 group-hover:md:translate-x-2">
                   {row.metric.startsWith('eumarket.') ? t(row.metric) : row.metric}
                 </div>
 
-                {/* 2. Linear Value Containers (Matches Excel Layout exactly on phone dimensions) */}
-                {/* 🔍 FIXED FOR MOBILE LINEAR SPLIT: 
-                   - Removed rigid flex-col block on mobile viewports.
-                   - Swapped to vertical layout space-y-3 structure containing full horizontal flex-row lines.
-                   - Added explicit max-w constraints on the right text values so long German words wrap elegantly right next to the label.
-                */}
+                {/* Linear Value Containers (Matches Excel Layout on phone profiles) */}
                 <div className="flex flex-col gap-3 w-full md:contents mt-2 md:mt-0 pl-2 md:pl-0">
                   
-                  {/* Row A: Conventional Import Row (Side-by-side on mobile, table column on desktop) */}
+                  {/* Row A: Conventional Import Row */}
                   <div className="flex flex-row justify-between items-start md:justify-end text-[#FFFFF0]/60 font-mono text-sm sm:text-base md:text-xl md:pr-8 w-full">
                     <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#FFFFF0]/40 font-sans mt-0.5 shrink-0">
                       {t('eumarket.table_col_import')}
@@ -138,7 +134,7 @@ export default function EUMarket() {
                     </span>
                   </div>
 
-                  {/* Row B: NIBO Bio-System Row (Side-by-side on mobile, table column on desktop) */}
+                  {/* Row B: NIBO Bio-System Row */}
                   <div className="flex flex-row justify-between items-start md:justify-end font-mono text-base sm:text-lg md:text-2xl lg:text-3xl font-black text-[#635D59] group-hover:text-[#FAEEC8] transition-all duration-300 transform md:group-hover:scale-105 w-full">
                     <span className="inline md:hidden text-[10px] font-bold uppercase tracking-wider text-[#4A443F] font-sans mt-1 shrink-0">
                       NIBO
@@ -169,39 +165,48 @@ export default function EUMarket() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {alignmentCards.map((card, i) => (
-              <div 
-                key={i}
-                className="card-glow group p-8 sm:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/20 flex flex-col justify-between h-auto lg:min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl relative overflow-hidden"
-                style={{ 
-                  backgroundColor: 'rgba(255, 255, 240, 0.04)', 
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)'
-                }}
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <span className="num-animate text-[#FFFFF0] font-black text-2xl sm:text-3xl tracking-tighter opacity-50 transition-all duration-500">
-                    {card.id}
-                  </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-4 sm:px-5 py-2 rounded-full">
-                    {t(card.tag)}
-                  </span>
-                </div>
+            {alignmentCards.map((card, i) => {
+              const isGerman = i18n.language?.startsWith('de');
+              
+              return (
+                <div 
+                  key={i}
+                  className="card-glow group p-6 sm:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/20 flex flex-col justify-between h-auto lg:min-h-[400px] transition-all duration-500 hover:border-[#87AE73]/60 shadow-xl relative overflow-hidden"
+                  style={{ 
+                    backgroundColor: 'rgba(255, 255, 240, 0.04)', 
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)'
+                  }}
+                >
+                  <div className="flex justify-between items-start mb-8">
+                    <span className="num-animate text-[#FFFFF0] font-black text-2xl sm:text-3xl tracking-tighter opacity-50 transition-all duration-500">
+                      {card.id}
+                    </span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FFFFF0] bg-white/10 border border-white/20 px-4 sm:px-5 py-2 rounded-full">
+                      {t(card.tag)}
+                    </span>
+                  </div>
 
-                <div className="mb-6 md:mb-0">
-                  <h3 className="text-[#FFFFF0] text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 sm:mb-6 leading-tight">
-                    {t(card.title)}
-                  </h3>
-                  <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-base sm:text-xl">
-                    {t(card.text)}
-                  </p>
-                </div>
+                  <div className="mb-6 md:mb-0 relative z-10 pr-2 sm:pr-0">
+                    <h3 
+                      lang={isGerman ? "de" : "en"}
+                      className="text-[#FFFFF0] text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight mb-4 sm:mb-6 leading-tight break-words hyphens-auto tracking-tight"
+                      style={{ hyphens: 'auto', WebkitHyphens: 'auto' }}
+                    >
+                      {t(card.title)}
+                    </h3>
+                    <p className="text-[#FFFFF0]/80 leading-relaxed font-light text-sm sm:text-xl">
+                      {t(card.text)}
+                    </p>
+                  </div>
 
-                <div className="animate-draw w-16 h-[3px] bg-[#4A5D23] mt-6 lg:mt-10 transition-all duration-700 opacity-100"></div>
-              </div>
-            ))}
+                  <div className="animate-draw w-16 h-[3px] bg-[#4A5D23] mt-6 lg:mt-10 transition-all duration-700 opacity-100"></div>
+                </div>
+              );
+            })}
           </div>
         </div>
+
       </div>
 
       {/* GLOBAL POSH STYLES */}
